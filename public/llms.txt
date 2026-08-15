@@ -1,0 +1,31 @@
+# Comet Foundry
+
+> Comet Foundry is a hacker house and student-led innovation, entrepreneurship, and technology organization at the University of Texas at Dallas (UT Dallas), established Fall 2026. It is a physical space and community for students to build projects, ship ideas, and connect with peers and mentors — not a traditional club with recurring meetings. Founded by Vishva Patel.
+
+## Key facts
+
+- Name: Comet Foundry
+- Type: Student organization / hacker house
+- Location: UT Dallas, Richardson, Texas, USA
+- Founded: Fall 2026
+- Founder: Vishva Patel
+- Contact: info@cometfoundry.com
+- Website: https://www.cometfoundry.com
+
+## Pages
+
+- [Home](https://www.cometfoundry.com/): overview, mission, upcoming events
+- [About](https://www.cometfoundry.com/about): origin story and what Comet Foundry is
+- [Programs](https://www.cometfoundry.com/programs): the four labs — Build, Think, Network, After Hours
+- [Projects](https://www.cometfoundry.com/projects): member-built projects
+- [Team](https://www.cometfoundry.com/team): founder and crew
+- [Founder](https://www.cometfoundry.com/founder): background on founder Vishva Patel
+- [Partners](https://www.cometfoundry.com/partners): industry partners, including Resilient Privacy Inc.
+- [Events](https://www.cometfoundry.com/events): event calendar
+- [Blog](https://www.cometfoundry.com/blog): essays from founder Vishva Patel on building, risk, and startups
+  - [The 9-5 Felt Safe. It Wasn't.](https://www.cometfoundry.com/blog/9-5-felt-safe)
+  - [Nobody Tells You the First Idea Usually Doesn't Work](https://www.cometfoundry.com/blog/first-idea-doesnt-work)
+  - [We Trained a Generation to Follow Instructions. The World Needs People Who Can Build.](https://www.cometfoundry.com/blog/build-dont-follow)
+- [Apply](https://www.cometfoundry.com/apply): how to join
+- [Privacy Policy](https://www.cometfoundry.com/privacy-policy)
+- [Terms of Use](https://www.cometfoundry.com/terms-of-use)

@@ -1,0 +1,48 @@
+'use client';
+
+import { useRef, useState } from 'react';
+
+export default function JoinForm() {
+  const [buttonText, setButtonText] = useState('SUBSCRIBE →');
+  const [disabled, setDisabled] = useState(false);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const honeypotRef = useRef<HTMLInputElement>(null);
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (honeypotRef.current?.value) return;
+
+    setDisabled(true);
+    setButtonText('JOINING...');
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: emailRef.current?.value,
+          company: honeypotRef.current?.value ?? '',
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        setButtonText('ADDED ✓');
+        if (emailRef.current) emailRef.current.value = '';
+      } else {
+        setButtonText('TRY AGAIN →');
+        setDisabled(false);
+      }
+    } catch {
+      setButtonText('TRY AGAIN →');
+      setDisabled(false);
+    }
+  }
+
+  return (
+    <form className="join-form" id="join-form" onSubmit={handleSubmit}>
+      <input ref={emailRef} type="email" name="email" placeholder="you@utdallas.edu" required aria-label="Email address" />
+      <input ref={honeypotRef} type="text" name="company" className="hp-field" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+      <button type="submit" disabled={disabled}>{buttonText}</button>
+    </form>
+  );
+}
