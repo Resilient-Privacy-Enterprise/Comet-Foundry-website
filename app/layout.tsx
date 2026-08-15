@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import Door from '@/components/Door';
 import Nav from '@/components/Nav';
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </main>
         <BoredButton />
+        <Analytics />
       </body>
     </html>
   );
