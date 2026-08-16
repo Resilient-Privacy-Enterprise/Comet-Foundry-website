@@ -45,6 +45,7 @@ export default function Nav() {
           <Link href="/partners" className={isActive('partners') ? 'active' : undefined}>Partners</Link>
           <Link href="/events" className={isActive('events') ? 'active' : undefined}>Events</Link>
           <Link href="/blog" className={isActive('blog') ? 'active' : undefined}>Blog</Link>
+          <Link href="/donate" className={isActive('donate') ? 'active' : undefined}>Donate</Link>
         </nav>
         <a className="nav-cta" href={APPLY_URL} target="_blank" rel="noopener">APPLY →</a>
         <button
@@ -59,15 +60,16 @@ export default function Nav() {
       </div>
       <div id="mobile-menu" className={`mobile-menu${open ? ' open' : ''}`}>
         {LINKS.map((l) => (
-          <Link key={l.nav} href={l.href}>{l.label}</Link>
+          <Link key={l.nav} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>
         ))}
         <span className="mobile-menu-label">Team</span>
-        <Link href="/founder" className="mobile-sub-link">↳ Founder</Link>
-        <Link href="/team" className="mobile-sub-link">↳ UTD Crew</Link>
-        <Link href="/partners">Partners</Link>
-        <Link href="/events">Events</Link>
-        <Link href="/blog">Blog</Link>
-        <a href={APPLY_URL} target="_blank" rel="noopener" className="cta-row">Apply →</a>
+        <Link href="/founder" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Founder</Link>
+        <Link href="/team" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ UTD Crew</Link>
+        <Link href="/partners" onClick={() => setOpen(false)}>Partners</Link>
+        <Link href="/events" onClick={() => setOpen(false)}>Events</Link>
+        <Link href="/blog" onClick={() => setOpen(false)}>Blog</Link>
+        <Link href="/donate" onClick={() => setOpen(false)}>Donate</Link>
+        <a href={APPLY_URL} target="_blank" rel="noopener" className="cta-row" onClick={() => setOpen(false)}>Apply →</a>
       </div>
     </header>
   );

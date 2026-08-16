@@ -33,21 +33,32 @@ export default function PartnersPage() {
 
       <section className="tight">
         <div className="wrap">
-          <div className="card-grid">
-            <div className="partner-card">
-              <div className="card-media">
-                <Image src="/assets/resilient-privacy-logo.jpg" alt="RESILIENT PRIVACY Inc." width={500} height={552} />
-              </div>
-              <div className="card-body">
-                <h3>RESILIENT PRIVACY Inc.</h3>
-                <p>
-                  <a href="https://www.resilientprivacy.com/?utm_source=chatgpt.com" target="_blank" rel="noopener">Resilient Privacy</a> is building an AI-native, unified platform for IT and cybersecurity operations.
-                </p>
-                <a className="card-link" href="https://www.resilientprivacy.com/?utm_source=chatgpt.com" target="_blank" rel="noopener">Visit site →</a>
-              </div>
+          <div className="partner-feature">
+            <div className="partner-feature-media">
+              <Image src="/assets/resilient-privacy-logo.jpg" alt="RESILIENT PRIVACY Inc." width={500} height={552} />
             </div>
-            <ComingSoonPartnerCard />
-            <ComingSoonPartnerCard />
+            <div className="partner-feature-body">
+              <span className="partner-feature-tag">FOUNDING PARTNER</span>
+              <h3>RESILIENT PRIVACY Inc.</h3>
+              <p>
+                <a href="https://www.resilientprivacy.com/?utm_source=chatgpt.com" target="_blank" rel="noopener">Resilient Privacy</a> is building an AI-native, unified platform for IT and cybersecurity operations — and backing Comet Foundry as our first industry partner.
+              </p>
+              <div className="partner-feature-meta">
+                <div>ROLE<span>Founding Industry Partner</span></div>
+                <div>FOCUS<span>AI-native cybersecurity</span></div>
+                <div>BRINGS<span>Mentorship &amp; internship pipeline</span></div>
+              </div>
+              <a className="card-link" href="https://www.resilientprivacy.com/?utm_source=chatgpt.com" target="_blank" rel="noopener">Visit site →</a>
+            </div>
+          </div>
+
+          <div className="partners-open">
+            <span className="section-label">OPEN PARTNERSHIP SLOTS</span>
+            <p className="section-intro">A few founding slots left — fund an experiment, send a mentor, or put your name on demo night.</p>
+            <div className="card-grid pair">
+              <ComingSoonPartnerCard />
+              <ComingSoonPartnerCard />
+            </div>
           </div>
         </div>
       </section>

@@ -24,6 +24,7 @@ export default function Footer() {
                 <li><Link href="/projects">Projects</Link></li>
                 <li><Link href="/team">Team</Link></li>
                 <li><Link href="/partners">Partners</Link></li>
+                <li><Link href="/donate">Donate</Link></li>
                 <li><Link href="/events">Events</Link></li>
                 <li><Link href="/blog">Blog</Link></li>
               </ul>
@@ -33,6 +34,7 @@ export default function Footer() {
               <ul>
                 <li><a href="mailto:info@cometfoundry.com">info@cometfoundry.com</a></li>
                 <li><a href={APPLY_URL} target="_blank" rel="noopener">Apply →</a></li>
+                <li><Link href="/report-bug">Report a Bug</Link></li>
               </ul>
               <div className="social-icons">
                 <a href="https://www.linkedin.com/company/cometfoundry/" target="_blank" rel="noopener" aria-label="Comet Foundry on LinkedIn">

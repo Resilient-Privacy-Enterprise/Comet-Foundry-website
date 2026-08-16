@@ -10,7 +10,12 @@
   --utd-orange:#FF7A29;
 }
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+/* Deliberately no scroll-behavior:smooth here. With client-side routing,
+   the DOM persists across page navigations, so Next.js's scroll-to-top on
+   route change inherits this CSS and becomes an animated scroll instead of
+   instant -- one that can get interrupted by late-loading fonts/images and
+   settle short of the actual top. The static-site version of this site
+   never hit this because every navigation there was a full page reload. */
 body{
   margin:0;
   background:var(--paper);
@@ -177,12 +182,14 @@ section.tight{ padding:70px 0; }
 
 /* ---------- VALUES GRID (about page) ---------- */
 .values-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+.values-grid.single{ grid-template-columns:1fr; max-width:360px; }
 @media (max-width:900px){ .values-grid{ grid-template-columns:repeat(2,1fr);} }
 @media (max-width:560px){ .values-grid{ grid-template-columns:1fr;} }
 .value-card{ background:var(--paper-raised); padding:30px 24px; min-height:180px; display:flex; flex-direction:column; justify-content:space-between; }
 .value-card .code{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); }
 .value-card h3{ font-size:19px; margin:16px 0 8px; text-transform:uppercase; line-height:1.1; }
 .value-card p{ font-size:14px; color:var(--ink-soft); margin:0; }
+.value-card a.value-link{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--flask); text-decoration:none; border-bottom:1px solid var(--flask); align-self:flex-start; margin-top:14px; }
 
 /* ---------- FAQ ---------- */
 .faq-list{ max-width:720px; border-top:1px solid var(--line); }
@@ -218,12 +225,13 @@ section.tight{ padding:70px 0; }
 .lab-card:nth-child(2) .stamp{ color:var(--blueprint); border-color:var(--blueprint); }
 .lab-card:nth-child(3) .stamp{ color:#b5860b; border-color:#b5860b; }
 .lab-card:nth-child(4) .stamp{ color:#a03d5b; border-color:#a03d5b; }
-.lab-annot{ position:absolute; top:-14px; right:24px; font-size:19px; color:var(--ink-soft); transform:rotate(3deg); }
+.lab-annot{ position:absolute; top:-38px; right:24px; font-size:19px; color:var(--ink-soft); transform:rotate(3deg); }
 
 /* ---------- CARD GRIDS (projects / team / partners / blog) ---------- */
 .card-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.card-grid.pair{ grid-template-columns:repeat(2,1fr); max-width:640px; }
 @media (max-width:900px){ .card-grid{ grid-template-columns:repeat(2,1fr);} }
-@media (max-width:600px){ .card-grid{ grid-template-columns:1fr;} }
+@media (max-width:600px){ .card-grid, .card-grid.pair{ grid-template-columns:1fr;} }
 
 .project-card, .person-card, .partner-card, .post-card{
   background:var(--paper-raised); border:1px solid var(--line); padding:0; overflow:hidden;
@@ -239,6 +247,9 @@ section.tight{ padding:70px 0; }
 .card-body p{ margin:0; font-size:14px; color:var(--ink-soft); line-height:1.5; }
 .card-body .mono-small{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); letter-spacing:.05em; }
 .card-body a.card-link{ margin-top:auto; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--flask); text-decoration:none; border-bottom:1px solid var(--flask); align-self:flex-start; }
+/* standalone version of the same mono/teal link style, for use outside a card */
+a.mono-link{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--flask); text-decoration:none; border-bottom:1px solid var(--flask); }
+a.mono-link:hover{ color:#164f42; }
 
 .coming-soon-card{
   border:1px dashed var(--line); background:transparent;
@@ -259,7 +270,9 @@ section.tight{ padding:70px 0; }
 
 /* ---------- PORTRAIT PROFILE GRID (Team page) ---------- */
 .section-label{ font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--flask); letter-spacing:.1em; margin-bottom:22px; display:block; }
+.section-intro{ margin:-10px 0 26px; max-width:540px; color:var(--ink-soft); font-size:14px; line-height:1.55; }
 .profile-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(168px, 1fr)); gap:28px 20px; }
+.profile-grid.exec{ grid-template-columns:repeat(auto-fill, minmax(190px, 1fr)); gap:24px; }
 .profile-card{ display:flex; flex-direction:column; }
 .profile-photo{
   position:relative; width:100%; aspect-ratio:3/4; background:var(--ink);
@@ -273,21 +286,69 @@ section.tight{ padding:70px 0; }
   position:absolute; top:10px; left:10px; font-family:'IBM Plex Mono',monospace; font-size:8.5px;
   letter-spacing:.07em; color:#fff; background:rgba(0,0,0,.32); padding:4px 7px;
 }
+/* Open (unfilled) seats borrow the site's dashed "coming soon" language
+   instead of looking like a broken photo, so 14 empty seats read as an
+   invitation rather than a vacancy list. */
+.profile-photo.open{
+  background:var(--paper-raised); border:1px dashed var(--line);
+  flex-direction:column; gap:10px;
+}
+.profile-photo.open .profile-tag{
+  position:static; background:transparent; color:var(--ink-soft);
+  border:1px solid var(--line); padding:5px 9px;
+}
+.profile-photo.open .abbr{ color:var(--ink-soft); font-size:28px; letter-spacing:.04em; opacity:.3; }
+.profile-photo.lead.open{ border-color:var(--flask); }
+.profile-photo.lead.open .abbr{ color:var(--flask); opacity:.45; }
 .profile-body{ padding-top:12px; }
 .profile-body h3{ font-size:15px; margin:0 0 3px; font-weight:700; line-height:1.2; letter-spacing:-.005em; }
 .profile-role{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--ink-soft); margin:0 0 10px; line-height:1.4; }
+.profile-seat{ font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--ink-soft); letter-spacing:.06em; text-transform:uppercase; margin:0 0 8px; }
+.profile-invite{ font-size:12px; color:var(--ink-soft); line-height:1.5; margin:0 0 10px; }
 .profile-links{ display:flex; flex-direction:column; gap:5px; }
 .profile-links a{
   font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--flask); text-decoration:none;
-  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  overflow-wrap:break-word; word-break:break-word;
 }
-.profile-links a.linkedin-placeholder{ color:var(--ink-soft); }
-.profile-links a.linkedin-placeholder:hover{ color:var(--ink); }
-@media (max-width:560px){ .profile-grid{ grid-template-columns:repeat(auto-fill, minmax(130px, 1fr)); gap:20px 14px; } }
+.profile-links a.profile-apply{ font-weight:700; }
+.profile-links a.linkedin-placeholder,
+.profile-links a.profile-email{ color:var(--ink-soft); }
+.profile-links a.linkedin-placeholder:hover,
+.profile-links a.profile-email:hover{ color:var(--ink); }
+@media (max-width:560px){ .profile-grid, .profile-grid.exec{ grid-template-columns:repeat(auto-fill, minmax(130px, 1fr)); gap:20px 14px; } }
 
 /* partners specifics */
 .partner-card{ flex-direction:row; align-items:center; gap:0; }
 .partner-card .card-media{ width:110px; height:auto; align-self:stretch; flex-shrink:0; background:#000; }
+
+/* Featured partner -- a real, funded partnership gets its own full-width
+   treatment instead of sitting shoulder-to-shoulder with empty "coming
+   soon" slots at the same visual weight. */
+.partner-feature{
+  display:flex; align-items:stretch; background:var(--paper-raised);
+  border:1px solid var(--line); margin-bottom:48px;
+}
+@media (max-width:760px){ .partner-feature{ flex-direction:column; } }
+.partner-feature .partner-feature-media{
+  width:260px; flex-shrink:0; background:#000;
+  display:flex; align-items:center; justify-content:center; padding:32px;
+}
+@media (max-width:760px){ .partner-feature .partner-feature-media{ width:100%; padding:40px; } }
+.partner-feature .partner-feature-media img{ width:100%; height:auto; display:block; }
+.partner-feature-body{ padding:36px 40px; display:flex; flex-direction:column; gap:14px; justify-content:center; }
+.partner-feature-tag{
+  align-self:flex-start; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em;
+  color:var(--flask); border:1px solid var(--flask); padding:5px 10px;
+}
+.partner-feature-body h3{ margin:0; font-size:26px; text-transform:uppercase; line-height:1.1; }
+.partner-feature-body p{ margin:0; font-size:15px; color:var(--ink-soft); line-height:1.6; max-width:560px; }
+.partner-feature-meta{ display:flex; flex-wrap:wrap; gap:24px; margin:4px 0; }
+.partner-feature-meta div{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); }
+.partner-feature-meta span{ display:block; color:var(--ink); font-size:13px; margin-top:3px; font-family:'Space Grotesk',sans-serif; }
+.partner-feature-body a.card-link{ margin-top:4px; }
+
+.partners-open{ margin-top:8px; }
+.partners-open .section-label{ margin-bottom:8px; }
 
 /* ---------- EVENTS ---------- */
 .event-card{ background:var(--ink); color:var(--paper); display:grid; grid-template-columns:.9fr 1.1fr; border-radius:2px; position:relative; }
@@ -368,18 +429,20 @@ section.tight{ padding:70px 0; }
 .hp-field{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
 .join-note{ margin-top:16px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); }
 
-.apply-form{ max-width:640px; margin:0 auto; display:flex; flex-direction:column; gap:20px; text-align:left; }
-.apply-form[hidden]{ display:none; }
-.apply-form label{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.05em; color:var(--ink-soft); display:block; margin-bottom:8px; }
-.apply-form input, .apply-form select, .apply-form textarea{
+/* ---------- BUG REPORT FORM ---------- */
+.stacked-form{ max-width:560px; display:flex; flex-direction:column; gap:20px; text-align:left; }
+.stacked-form label{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.05em; color:var(--ink-soft); display:block; margin-bottom:8px; }
+.stacked-form input, .stacked-form textarea{
   width:100%; padding:14px 16px; border:1px solid var(--line); background:var(--paper-raised);
   font-family:'Space Grotesk',sans-serif; font-size:15px;
 }
-.apply-form textarea{ resize:vertical; min-height:110px; }
-.apply-form input:focus-visible, .apply-form select:focus-visible, .apply-form textarea:focus-visible{ outline:2px solid var(--blueprint); outline-offset:2px; }
-.apply-form button{ background:var(--ink); color:var(--paper); border:none; font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:.06em; padding:16px 26px; cursor:pointer; align-self:flex-start; }
-.apply-form button:hover{ background:#2c2d33; }
-.apply-note{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); }
+.stacked-form textarea{ resize:vertical; min-height:120px; }
+.stacked-form input:focus-visible, .stacked-form textarea:focus-visible{ outline:2px solid var(--blueprint); outline-offset:2px; }
+.stacked-form button{ background:var(--ink); color:var(--paper); border:none; font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:.06em; padding:16px 26px; cursor:pointer; align-self:flex-start; }
+.stacked-form button:hover{ background:#2c2d33; }
+.stacked-form button:disabled{ opacity:.6; cursor:default; }
+.form-status{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--flask); margin:0; }
+.form-status.error{ color:#a03d5b; }
 
 /* ---------- BLOG POST ---------- */
 .post-body{ max-width:680px; margin:0 auto; font-size:18px; line-height:1.75; }

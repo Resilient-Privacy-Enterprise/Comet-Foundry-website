@@ -26,6 +26,10 @@ function isRateLimited(ip: string) {
   return timestamps.length > MAX_PER_WINDOW;
 }
 
+// Generous cap for an email + a few thousand characters of message text --
+// rejects grossly oversized bodies before we buffer/parse them.
+const MAX_BODY_BYTES = 16_000;
+
 export async function POST(req: NextRequest) {
   const ip = (req.headers.get('x-forwarded-for') || 'unknown').split(',')[0].trim();
   if (isRateLimited(ip)) {
@@ -35,8 +39,18 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  const contentLength = Number(req.headers.get('content-length') || 0);
+  if (contentLength > MAX_BODY_BYTES) {
+    return NextResponse.json({ ok: false, error: 'Request too large' }, { status: 413 });
+  }
+
   const body = await req.json().catch(() => ({}));
-  const { email, company } = body as { email?: string; company?: string };
+  const { email, company, subject, message } = body as {
+    email?: string;
+    company?: string;
+    subject?: string;
+    message?: string;
+  };
 
   // Honeypot: a real visitor never fills this hidden field, bots often do.
   if (company) {
@@ -46,6 +60,13 @@ export async function POST(req: NextRequest) {
   if (typeof email !== 'string' || !EMAIL_RE.test(email)) {
     return NextResponse.json({ ok: false, error: 'Invalid email address' }, { status: 400 });
   }
+
+  // Free-text field, so bound its length -- this is an email body, not a database column.
+  const safeMessage = typeof message === 'string' ? message.slice(0, 4000) : undefined;
+  const emailSubject = typeof subject === 'string' && subject.trim() ? subject.trim().slice(0, 200) : 'New "Join The Foundry" signup';
+  const emailText = safeMessage
+    ? `New message from the ${emailSubject} form on cometfoundry.com:\n\nEmail: ${email}\n\nMessage:\n${safeMessage}`
+    : `New signup from the Join The Foundry form on cometfoundry.com:\n\nEmail: ${email}`;
 
   try {
     const resendRes = await fetch('https://api.resend.com/emails', {
@@ -58,8 +79,8 @@ export async function POST(req: NextRequest) {
         from: 'Comet Foundry <subscribe@cometfoundry.com>',
         to: ['subscribe@cometfoundry.com'],
         reply_to: email,
-        subject: 'New "Join The Foundry" signup',
-        text: `New signup from the Join The Foundry form on cometfoundry.com:\n\nEmail: ${email}`,
+        subject: emailSubject,
+        text: emailText,
       }),
     });
 

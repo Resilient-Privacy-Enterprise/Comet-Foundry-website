@@ -15,13 +15,13 @@ const faqs = [
   },
   {
     q: 'Do I need to be a CS major to join?',
-    a: "No. CS major, art major, undeclared — if you want to build, there's a seat. We care what you want to make, not what's on your résumé.",
+    a: "Your major is just what you study. It doesn't define what you can build. Whether you're an engineer, designer, marketer, researcher, or still undecided, there's a place for you at Comet Foundry. We care about curiosity, ambition, and execution—not credentials.",
   },
   {
     q: 'How do I apply?',
     a: null, // rendered separately below, contains a link
   },
-  { q: 'Where is Comet Foundry located?', a: 'UT Dallas, Lab 01.' },
+  { q: 'Where is Comet Foundry located?', a: '800 W Campbell Rd, Richardson, Texas. Room TBD.' },
   {
     q: "How do I find out about upcoming events?",
     a: null, // rendered separately below, contains links
@@ -35,7 +35,7 @@ export default function AboutPage() {
     mainEntity: [
       { '@type': 'Question', name: faqs[0].q, acceptedAnswer: { '@type': 'Answer', text: faqs[0].a } },
       { '@type': 'Question', name: faqs[1].q, acceptedAnswer: { '@type': 'Answer', text: faqs[1].a } },
-      { '@type': 'Question', name: 'How do I apply?', acceptedAnswer: { '@type': 'Answer', text: "Head to the Apply page and tell us what you want to build — that's most of the application." } },
+      { '@type': 'Question', name: 'How do I apply?', acceptedAnswer: { '@type': 'Answer', text: "Fill out the application form and tell us what you want to build — that's most of the application." } },
       { '@type': 'Question', name: faqs[3].q, acceptedAnswer: { '@type': 'Answer', text: faqs[3].a } },
       { '@type': 'Question', name: "How do I find out about upcoming events?", acceptedAnswer: { '@type': 'Answer', text: 'Check the Events page or RSVP to Foundry Kickoff Night, the first open house of the semester.' } },
     ],
@@ -55,9 +55,12 @@ export default function AboutPage() {
       <section className="tight">
         <div className="wrap about-grid">
           <div className="about-text">
-            <p>We&apos;re a small group of students who got tired of waiting for permission to build. So we started a room.</p>
-            <p>No advisor sign-off required to try something. No semester-long approval process. If you want to build it, test it, or argue about it, there&apos;s a lab for that — starting this week, not next year.</p>
-            <p>Comet Foundry isn&apos;t a résumé line. It&apos;s a space that assumes you&apos;re capable of more than a class project, and gets out of your way.</p>
+            <p>Every university teaches you how to get a job.</p>
+            <p>Very few teach you how to create one.</p>
+            <p>Comet Foundry was founded to close that gap.</p>
+            <p>We wanted a place where students could learn the things that rarely appear in a syllabus: building startups, finding co-founders, hiring teams, navigating legal and compliance requirements, raising capital, launching products, and turning ideas into sustainable organizations.</p>
+            <p>The reality is that most great ideas don&apos;t fail because of technology. They fail because the people behind them don&apos;t know where to start.</p>
+            <p>Comet Foundry exists to make sure they do.</p>
           </div>
           <div className="doc-card">
             <span className="hand">the short version</span>
@@ -116,7 +119,17 @@ export default function AboutPage() {
             </details>
             <details className="faq-item">
               <summary>How do I apply?</summary>
-              <p>Head to the <Link href="/apply">Apply page</Link> and tell us what you want to build — that&apos;s most of the application.</p>
+              <p>
+                Fill out the{' '}
+                <a
+                  href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=HR0ojU2c90uxbgMtFd6fbIhHjy7i2rpHt7VcaeT3yedUMkQwTTU4TkpUNFczMVQzS0cwUUVaWEw0WC4u&route=shorturl&b2b=true"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  application form
+                </a>{' '}
+                and tell us what you want to build — that&apos;s most of the application.
+              </p>
             </details>
             <details className="faq-item">
               <summary>Where is Comet Foundry located?</summary>
