@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Comet Foundry — Website
 
-## Getting Started
+The production website for Comet Foundry, a hacker house at UT Dallas — built with [Next.js](https://nextjs.org) (App Router). This is the live codebase behind [cometfoundry.com](https://www.cometfoundry.com).
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, Turbopack) with **React 19** and **TypeScript**
+- **npm** for package management
+- Deployed on **Vercel**, with the GitHub repo connected for CI builds
+- **Resend** for transactional email (the "Join The Foundry" signup form)
+- **Vercel Web Analytics** for privacy-respecting, cookie-free traffic insight
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Copy `.env.example` to `.env.local` and fill in `RESEND_API_KEY` to test the subscribe form locally. Without it, `/api/subscribe` still validates input and rate-limits correctly, but the actual email send will fail — that's expected in local dev.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+- `app/` — one route per page (App Router file-based routing), plus `app/api/subscribe/route.ts` for the email signup endpoint, and `app/robots.ts` / `app/sitemap.ts` for SEO metadata routes.
+- `components/` — shared UI: nav, footer, the door intro animation, the events calendar, blog/legal page layouts, etc.
+- `lib/metadata.ts` — shared helper for per-page SEO/Open Graph metadata.
+- `public/assets/` — images, icons, and other static files, served directly.
+- `next.config.ts` — security headers (CSP, HSTS, etc.) and asset caching rules.
 
-To learn more about Next.js, take a look at the following resources:
+## Content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Content (blog posts, team roster, event details) lives directly in the page/data files as structured TypeScript, not a database or external CMS — changes are made by editing code and committing, matching the rest of this repo's git-based workflow.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+Connected to Vercel via its native GitHub integration — pushes to `main` build automatically. `RESEND_API_KEY` must be set in the Vercel project's Environment Variables for the subscribe form to work in production.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Maintainers
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Developer & Maintainer:** [Vishva Patel](https://www.linkedin.com/in/vishva-vp/)
