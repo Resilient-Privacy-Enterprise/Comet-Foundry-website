@@ -12,6 +12,7 @@ const LINKS = [
   { href: '/about', label: 'About', nav: 'about' },
   { href: '/programs', label: 'Programs', nav: 'programs' },
   { href: '/projects', label: 'Projects', nav: 'projects' },
+  { href: '/resources', label: 'Resources', nav: 'resources' },
 ];
 
 export default function Nav() {
@@ -68,6 +69,7 @@ export default function Nav() {
         <Link href="/partners" onClick={() => setOpen(false)}>Partners</Link>
         <Link href="/events" onClick={() => setOpen(false)}>Events</Link>
         <Link href="/blog" onClick={() => setOpen(false)}>Blog</Link>
+        <Link href="/resources" onClick={() => setOpen(false)}>Resources</Link>
         <Link href="/donate" onClick={() => setOpen(false)}>Donate</Link>
         <a href={APPLY_URL} target="_blank" rel="noopener" className="cta-row" onClick={() => setOpen(false)}>Apply →</a>
       </div>
