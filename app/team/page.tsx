@@ -20,7 +20,19 @@ const EXEC_BOARD: Seat[] = [
   { role: 'Vice President', slug: 'vp', seats: 1 },
   { role: 'Secretary', slug: 'secretary', seats: 1 },
   { role: 'Treasurer', slug: 'treasurer', seats: 1 },
-  { role: 'Marketing Strategist', slug: 'marketing', seats: 1 },
+  {
+    role: 'Marketing Strategist',
+    slug: 'marketing',
+    seats: 1,
+    filled: {
+      1: {
+        name: 'Vishwa Thummar',
+        photo: '/assets/team/vishwa-thummar.jpg',
+        email: 'VishwaJaysukhbhai.Thummar@utdallas.edu',
+        linkedin: 'https://www.linkedin.com/in/vishwa-thummar/',
+      },
+    },
+  },
 ];
 
 const OFFICERS: Seat[] = [

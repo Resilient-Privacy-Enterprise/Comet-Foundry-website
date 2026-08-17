@@ -17,6 +17,10 @@
 - [Home](https://www.cometfoundry.com/): overview, mission, upcoming events
 - [About](https://www.cometfoundry.com/about): origin story and what Comet Foundry is
 - [Programs](https://www.cometfoundry.com/programs): the four labs — Build, Think, Network, After Hours
+  - [Build Lab](https://www.cometfoundry.com/programs/build-lab)
+  - [Think Lab](https://www.cometfoundry.com/programs/think-lab)
+  - [Network Lab](https://www.cometfoundry.com/programs/network-lab)
+  - [After Hours](https://www.cometfoundry.com/programs/after-hours)
 - [Projects](https://www.cometfoundry.com/projects): member-built projects
 - [Team](https://www.cometfoundry.com/team): founder and crew
 - [Founder](https://www.cometfoundry.com/founder): background on founder Vishva Patel

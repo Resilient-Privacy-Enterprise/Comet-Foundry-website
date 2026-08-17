@@ -1,19 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { pageMetadata } from '@/lib/metadata';
+import { LABS } from '@/lib/labs';
 
 export const metadata: Metadata = pageMetadata({
   path: '/programs',
   ogTitle: 'Programs — Comet Foundry',
   description: "Four labs, not departments: Build, Think, Network, and After Hours. Drop into whichever matches what you're in the mood for this week.",
 });
-
-const LABS = [
-  { num: '01', name: 'Build Lab', cmd: 'Make things.', detail: 'Weekend build sprints, prototyping sessions, and open workshop hours with the hardware bench and dev tools. Show up with an idea, leave with a v1.', stamp: 'MAKE →', annot: 'seriously, anything' },
-  { num: '02', name: 'Think Lab', cmd: 'Have an opinion.', detail: 'Mentorship, research discussions, and 1:1 feedback sessions. Bring a half-formed argument and leave with a sharper one — preferably a controversial one.', stamp: 'preferably controversial' },
-  { num: '03', name: 'Network Lab', cmd: 'Meet people.', detail: 'Demo nights, founder dinners, and industry partnerships. The useful kind of networking — the kind where you actually stay in touch.', stamp: 'the useful kind' },
-  { num: '04', name: 'After Hours', cmd: 'Touch grass. 😂', detail: 'Informal hangouts, game nights, and the community that makes the other three labs worth showing up for. Occasionally, we go outside.', stamp: 'occasionally' },
-];
 
 export default function ProgramsPage() {
   return (
@@ -35,12 +29,12 @@ export default function ProgramsPage() {
                 {lab.annot && <span className="lab-annot hand">{lab.annot}</span>}
                 <div>
                   <span className="code mono">LAB / {lab.num}</span>
-                  <h3>{lab.name}</h3>
+                  <h3><Link href={`/programs/${lab.slug}`} style={{ color: 'inherit', textDecoration: 'none' }}>{lab.name}</Link></h3>
                   <p className="cmd mono">{lab.cmd}</p>
                   <p className="detail">{lab.detail}</p>
                 </div>
                 <div className="lab-actions">
-                  <Link className="lab-link" href="/events">See {lab.name} events →</Link>
+                  <Link className="lab-link" href={`/programs/${lab.slug}`}>More on {lab.name} →</Link>
                   <span className="stamp">{lab.stamp}</span>
                 </div>
               </div>

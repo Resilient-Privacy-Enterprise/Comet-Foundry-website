@@ -45,23 +45,30 @@ export default function DonatePage() {
           <div className="sec-head center">
             <span className="num mono">SUPPORT THE LAB</span>
             <h2>Give What You Can</h2>
-            <p>Every dollar goes straight back into the lab. Give directly, or reach out and we&apos;ll make it easy.</p>
+            <p>Give directly through either platform below, or reach out and we&apos;ll make it easy.</p>
           </div>
-          <a
-            className="rsvp-btn"
-            href="https://gofund.me/e64942534"
-            target="_blank"
-            rel="noopener"
-            style={{ background: 'var(--ink)', color: 'var(--paper)' }}
-          >
-            DONATE ON GOFUNDME →
-          </a>
-          <div>
-            <a
-              className="mono-link"
-              href="mailto:info@cometfoundry.com?subject=I'd%20like%20to%20support%20Comet%20Foundry"
-              style={{ marginTop: 18, display: 'inline-block' }}
-            >
+          <div className="payment-options">
+            <a className="payment-btn" href="https://donate.stripe.com/cNi9AT7RE1Xt6rX30Sfw400" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#635BFF" strokeWidth="1.7">
+                <rect x="2.5" y="5" width="19" height="14" rx="2.2" />
+                <path d="M2.5 9.5h19" />
+                <path d="M6 14.5h4" />
+              </svg>
+              <span>
+                Donate with <strong style={{ color: '#635BFF' }}>Stripe</strong>
+              </span>
+            </a>
+            <a className="payment-btn" href="https://gofund.me/e64942534" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00B964" strokeWidth="1.7">
+                <path d="M12 20.2s-7.8-4.7-7.8-10.2A4.6 4.6 0 0 1 12 6.9 4.6 4.6 0 0 1 19.8 10c0 5.5-7.8 10.2-7.8 10.2z" />
+              </svg>
+              <span>
+                Donate with <strong style={{ color: '#00B964' }}>GoFundMe</strong>
+              </span>
+            </a>
+          </div>
+          <div style={{ marginTop: 18 }}>
+            <a className="mono-link" href="mailto:info@cometfoundry.com?subject=I'd%20like%20to%20support%20Comet%20Foundry">
               Prefer email? Reach out directly →
             </a>
           </div>
