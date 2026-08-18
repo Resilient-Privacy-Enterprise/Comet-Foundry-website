@@ -241,14 +241,6 @@ export default function TeamPage() {
 
       <section className="tight">
         <div className="wrap">
-          <a href="https://utdallas.box.com/v/constitutionandByLaws" target="_blank" rel="noopener" style={{ display: 'inline-block', marginBottom: '2rem' }}>
-            <button className="back-btn">View Constitution and By Laws →</button>
-          </a>
-        </div>
-      </section>
-
-      <section className="tight">
-        <div className="wrap">
           <span className="section-label">EXECUTIVE BOARD</span>
           <p className="section-intro">The five seats that set direction for the house — strategy, structure, and who we bring in next. All five are open.</p>
           <div className="profile-grid exec">
@@ -274,6 +266,14 @@ export default function TeamPage() {
           <div className="profile-grid">
             {ADVISORS.flatMap((seat) => renderSeats(seat, false))}
           </div>
+        </div>
+      </section>
+
+      <section className="tight">
+        <div className="wrap">
+          <a href="https://utdallas.box.com/v/constitutionandByLaws" target="_blank" rel="noopener">
+            <button className="back-btn">View Constitution and By Laws →</button>
+          </a>
         </div>
       </section>
 
