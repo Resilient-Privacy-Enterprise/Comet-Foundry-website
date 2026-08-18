@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 export default function JoinForm() {
   const [buttonText, setButtonText] = useState('SUBSCRIBE →');
   const [disabled, setDisabled] = useState(false);
+  const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
 
@@ -20,6 +21,7 @@ export default function JoinForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          name: nameRef.current?.value,
           email: emailRef.current?.value,
           company: honeypotRef.current?.value ?? '',
         }),
@@ -27,6 +29,7 @@ export default function JoinForm() {
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.ok) {
         setButtonText('ADDED ✓');
+        if (nameRef.current) nameRef.current.value = '';
         if (emailRef.current) emailRef.current.value = '';
       } else {
         setButtonText('TRY AGAIN →');
@@ -40,6 +43,7 @@ export default function JoinForm() {
 
   return (
     <form className="join-form" id="join-form" onSubmit={handleSubmit}>
+      <input ref={nameRef} type="text" name="name" placeholder="Your full name" required aria-label="Full name" />
       <input ref={emailRef} type="email" name="email" placeholder="you@utdallas.edu" required aria-label="Email address" />
       <input ref={honeypotRef} type="text" name="company" className="hp-field" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <button type="submit" disabled={disabled}>{buttonText}</button>
