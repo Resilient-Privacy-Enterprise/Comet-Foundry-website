@@ -43,6 +43,9 @@ export default function CookieConsent() {
               <Link href="/privacy-policy" style={{ color: 'var(--flask)', textDecoration: 'none', borderBottom: '1px solid var(--flask)' }}>
                 Privacy Policy
               </Link>
+              <Link href="/cookie-policy" style={{ color: 'var(--flask)', textDecoration: 'none', borderBottom: '1px solid var(--flask)' }}>
+                Cookie Policy
+              </Link>
               <Link href="/terms-of-use" style={{ color: 'var(--flask)', textDecoration: 'none', borderBottom: '1px solid var(--flask)' }}>
                 Terms of Use
               </Link>
