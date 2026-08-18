@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="footer-brand">
             <Image src="/assets/comet-foundry-logo.png" alt="Comet Foundry" className="footer-logo" width={400} height={357} />
             <h4>Comet Foundry</h4>
-            <p className="footer-brand-line">UT Dallas / Fall 2026</p>
+            <p className="footer-brand-line">Where vision becomes venture.</p>
             <p className="footer-brand-line hand">Someone had to try. :)</p>
           </div>
           <div className="footer-links">
@@ -55,6 +55,15 @@ export default function Footer() {
               <h5>Legal</h5>
               <ul>
                 <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+                <li><Link href="/cookie-policy">Cookie Policy</Link></li>
+                <li><Link href="/donation-refund-policy">Donation & Refund Policy</Link></li>
+                <li><Link href="/copyright-dmca-policy">Copyright & DMCA</Link></li>
+                <li><Link href="/accessibility-statement">Accessibility Statement</Link></li>
+                <li><Link href="/code-of-conduct">Code of Conduct</Link></li>
+                <li><Link href="/non-discrimination-statement">Non-Discrimination</Link></li>
+                <li><Link href="/ip-trademark-policy">IP & Trademark</Link></li>
+                <li><Link href="/event-waiver">Event Waiver</Link></li>
+                <li><Link href="/builder-acceptance-rulebook">Builder Rulebook</Link></li>
                 <li><Link href="/terms-of-use">Terms of Use</Link></li>
               </ul>
             </div>
