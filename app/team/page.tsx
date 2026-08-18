@@ -91,7 +91,15 @@ const OFFICERS: Seat[] = [
         email: 'Naavya.Vig@utdallas.edu',
         linkedin: 'https://www.linkedin.com/in/naavya-vig/',
       },
-      3: {
+    },
+  },
+  { role: 'Public Relations Officer', slug: 'pr', seats: 1 },
+  {
+    role: 'Partnerships Officer',
+    slug: 'partnerships',
+    seats: 2,
+    filled: {
+      1: {
         name: 'Aarav Kumar',
         photo: '/assets/team/aarav-kumar.png',
         email: 'Aarav.Kumar@utdallas.edu',
@@ -99,8 +107,6 @@ const OFFICERS: Seat[] = [
       },
     },
   },
-  { role: 'Public Relations Officer', slug: 'pr', seats: 1 },
-  { role: 'Partnerships Officer', slug: 'partnerships', seats: 2 },
   {
     role: 'Community Engagement Officer',
     slug: 'community',
@@ -108,6 +114,7 @@ const OFFICERS: Seat[] = [
     filled: {
       1: {
         name: 'Elizabeth Clawson',
+        photo: '/assets/team/Elizabeth-Clawson.png',
         email: 'Elizabeth.Clawson@utdallas.edu',
       },
     },
@@ -121,6 +128,7 @@ const OFFICERS: Seat[] = [
     filled: {
       1: {
         name: 'Thejas Pratheep',
+        photo: '/assets/team/Thejas Pratheep.png',
         email: 'Thejas.Pratheep@utdallas.edu',
         linkedin: 'https://www.linkedin.com/in/thejas-pratheep/',
       },

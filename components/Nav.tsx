@@ -59,6 +59,7 @@ export default function Nav() {
           {open ? '✕' : '☰'}
         </button>
       </div>
+      {open && <div className="mobile-menu-backdrop" onClick={() => setOpen(false)} />}
       <div id="mobile-menu" className={`mobile-menu${open ? ' open' : ''}`}>
         {LINKS.map((l) => (
           <Link key={l.nav} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>

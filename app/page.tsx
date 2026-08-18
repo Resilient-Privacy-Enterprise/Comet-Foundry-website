@@ -1,8 +1,29 @@
+import type { Metadata } from 'next';
 import DemoDayTitle from '@/components/DemoDayTitle';
 import JoinForm from '@/components/JoinForm';
+import { pageMetadata } from '@/lib/metadata';
 
 const APPLY_URL =
   'https://forms.cloud.microsoft/pages/responsepage.aspx?id=HR0ojU2c90uxbgMtFd6fbIhHjy7i2rpHt7VcaeT3yedUMkQwTTU4TkpUNFczMVQzS0cwUUVaWEw0WC4u&route=shorturl&b2b=true';
+
+export const metadata: Metadata = {
+  ...pageMetadata({
+    path: '/',
+    ogTitle: 'Comet Foundry — The Hackerhouse at UT Dallas',
+    description: 'A hackerhouse at UT Dallas for building things nobody assigned you. No perfect ideas. Just interesting ones. Join our innovation community.',
+    keywords: [
+      'hackerhouse at UT Dallas',
+      'student startup community',
+      'innovation lab UTD',
+      'student entrepreneurs',
+      'demo day',
+      'hacker community',
+      'startup accelerator',
+      'product building',
+      'innovation network',
+    ],
+  }),
+};
 
 export default function Home() {
   return (

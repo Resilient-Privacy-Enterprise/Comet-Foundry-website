@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import BoredButton from '@/components/BoredButton';
 import CookieConsent from '@/components/CookieConsent';
 import OrgJsonLd from '@/components/OrgJsonLd';
+import HackerhouseSchema from '@/components/HackerhouseSchema';
 import { pageMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = {
@@ -37,7 +38,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
         <meta name="theme-color" content="#15161A" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="format-detection" content="telephone=no" />
+        <link rel="favicon" href="/assets/favicon.png" />
+        <link rel="shortcut icon" href="/assets/favicon.png" type="image/png" />
+        <meta name="apple-mobile-web-app-title" content="Comet Foundry" />
+        <meta name="application-name" content="Comet Foundry" />
         <OrgJsonLd />
+        <HackerhouseSchema />
       </head>
       <body>
         <a className="skip-link" href="#main">Skip to content</a>

@@ -113,13 +113,23 @@ header.nav .wrap{ display:flex; align-items:center; justify-content:space-betwee
 }
 .nav-toggle:hover{ border-color:var(--ink); }
 .nav-toggle:focus-visible{ outline:2px solid var(--hazard); outline-offset:2px; }
-.mobile-menu{ display:none; flex-direction:column; border-top:1px solid var(--line); background:var(--paper); }
+.mobile-menu-backdrop{
+  position:fixed; inset:0; background:rgba(0,0,0,.3);
+  z-index:98; pointer-events:auto;
+}
+.mobile-menu{
+  display:none; flex-direction:column; position:fixed; top:76px; left:0; right:0;
+  max-height:calc(100vh - 76px); overflow-y:auto; -webkit-overflow-scrolling:touch;
+  z-index:99; border-top:1px solid var(--line); background:var(--paper);
+}
 .mobile-menu.open{ display:flex; }
 .mobile-menu a{
   padding:18px 32px; font-family:'IBM Plex Mono',monospace; font-size:15px; letter-spacing:.04em;
   color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);
+  display:block; transition:background .15s ease;
 }
-.mobile-menu a.cta-row{ color:var(--flask); }
+.mobile-menu a:active{ background:rgba(31,111,92,.08); }
+.mobile-menu a.cta-row{ color:var(--flask); font-weight:500; }
 .mobile-menu a.active{ color:var(--flask); }
 @media (max-width:900px){
   .nav-links{ display:none; }
@@ -354,38 +364,52 @@ a.mono-link:hover{ color:#164f42; }
 .profile-links a.profile-email:hover{ color:var(--ink); }
 @media (max-width:560px){ .profile-grid, .profile-grid.exec{ grid-template-columns:repeat(auto-fill, minmax(130px, 1fr)); gap:20px 14px; } }
 
-/* partners specifics */
-.partner-card{ flex-direction:row; align-items:center; gap:0; }
-.partner-card .card-media{ width:110px; height:auto; align-self:stretch; flex-shrink:0; background:#000; }
+/* partners specifics - improved compact layout */
+.partners-grid{ display:grid; gap:32px; }
 
-/* Featured partner -- a real, funded partnership gets its own full-width
-   treatment instead of sitting shoulder-to-shoulder with empty "coming
-   soon" slots at the same visual weight. */
-.partner-feature{
-  display:flex; align-items:stretch; background:var(--paper-raised);
-  border:1px solid var(--line); margin-bottom:48px;
+.partner-card-featured{
+  display:grid; grid-template-columns:1fr 280px; gap:48px; align-items:center;
+  background:var(--paper-raised); border:1px solid var(--line); padding:40px;
+  border-radius:2px;
 }
-@media (max-width:760px){ .partner-feature{ flex-direction:column; } }
-.partner-feature .partner-feature-media{
-  width:260px; flex-shrink:0; background:#000;
-  display:flex; align-items:center; justify-content:center; padding:32px;
-}
-@media (max-width:760px){ .partner-feature .partner-feature-media{ width:100%; padding:40px; } }
-.partner-feature .partner-feature-media img{ width:100%; height:auto; display:block; }
-.partner-feature-body{ padding:36px 40px; display:flex; flex-direction:column; gap:14px; justify-content:center; }
-.partner-feature-tag{
+@media (max-width:900px){ .partner-card-featured{ grid-template-columns:1fr; gap:32px; } }
+@media (max-width:640px){ .partner-card-featured{ padding:24px; } }
+
+.partner-card-featured-content{ display:flex; flex-direction:column; gap:18px; }
+.partner-card-featured-content h3{ margin:0; font-size:24px; text-transform:uppercase; line-height:1.1; }
+.partner-card-featured-content p{ margin:0; font-size:15px; color:var(--ink-soft); line-height:1.6; }
+
+.partner-badge{
   align-self:flex-start; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em;
   color:var(--flask); border:1px solid var(--flask); padding:5px 10px;
 }
-.partner-feature-body h3{ margin:0; font-size:26px; text-transform:uppercase; line-height:1.1; }
-.partner-feature-body p{ margin:0; font-size:15px; color:var(--ink-soft); line-height:1.6; max-width:560px; }
-.partner-feature-meta{ display:flex; flex-wrap:wrap; gap:24px; margin:4px 0; }
-.partner-feature-meta div{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); }
-.partner-feature-meta span{ display:block; color:var(--ink); font-size:13px; margin-top:3px; font-family:'Space Grotesk',sans-serif; }
-.partner-feature-body a.card-link{ margin-top:4px; }
 
-.partners-open{ margin-top:8px; }
-.partners-open .section-label{ margin-bottom:8px; }
+.partner-meta{ display:flex; flex-direction:column; gap:10px; }
+.partner-meta div{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); line-height:1.4; }
+.partner-meta strong{ color:var(--ink); font-weight:600; }
+
+.partner-card-featured-logo{
+  width:100%; height:280px; background:#000;
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+.partner-card-featured-logo img{ width:100%; height:100%; object-fit:contain; }
+@media (max-width:900px){
+  .partner-card-featured-logo{ height:220px; }
+}
+
+/* partners open section - cleaner layout */
+.partners-open-section{
+  display:flex; flex-direction:column; gap:24px; align-items:center; text-align:center;
+  padding:48px 0;
+}
+.partners-open-header{ max-width:600px; }
+.partners-open-header h2{ margin:0 0 12px; font-size:32px; text-transform:uppercase; line-height:1.1; }
+.partners-open-header p{ margin:0; font-size:15px; color:var(--ink-soft); line-height:1.6; }
+.partners-open-cta{ margin-top:24px; }
+
+/* legacy partner card styles */
+.partner-card{ flex-direction:row; align-items:center; gap:0; }
+.partner-card .card-media{ width:110px; height:auto; align-self:stretch; flex-shrink:0; background:#000; }
 
 /* ---------- EVENTS ---------- */
 .event-card{ background:var(--ink); color:var(--paper); display:grid; grid-template-columns:.9fr 1.1fr; border-radius:2px; position:relative; }
@@ -538,6 +562,37 @@ footer .footer-easter{ text-align:center; font-family:'IBM Plex Mono',monospace;
   footer .footer-easter{ white-space:normal; }
 }
 footer .mono{ font-size:12px; color:var(--ink-soft); letter-spacing:.04em; }
+
+/* ---------- COOKIE BANNER ---------- */
+.cookie-consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--paper);
+  border-top: 2px solid var(--ink);
+  padding: 1.5rem;
+  z-index: 999;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .cookie-consent-banner {
+    padding: 1.2rem 1rem;
+  }
+}
 
 /* ---------- I'M BORED ---------- */
 #bored-btn{

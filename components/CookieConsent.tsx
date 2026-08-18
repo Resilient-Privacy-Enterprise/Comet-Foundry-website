@@ -1,47 +1,53 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // Show banner to all users on every visit unless they've accepted in current session
-    const acceptedThisSession = sessionStorage.getItem('cookieConsentAccepted') === '1';
-    const labDoorOpen = sessionStorage.getItem('labDoorOpen') === '1';
+    setIsClient(true);
+    // Show banner on every visit for all users
+    // Users can dismiss it per page visit, but it returns on next visit/page load
+    const dismissedThisSession = sessionStorage.getItem('cookieConsentDismissed') === '1';
 
-    if (!acceptedThisSession && labDoorOpen) {
-      setShowBanner(true);
+    if (!dismissedThisSession) {
+      // Show banner with a small delay to ensure smooth rendering
+      const timer = setTimeout(() => {
+        setShowBanner(true);
+      }, 500);
+      return () => clearTimeout(timer);
     }
   }, []);
 
   function handleAccept() {
-    // Only remember acceptance for current session, not across visits
-    sessionStorage.setItem('cookieConsentAccepted', '1');
+    // Dismiss banner for this session only - it will reappear on next visit or page reload
+    sessionStorage.setItem('cookieConsentDismissed', '1');
     setShowBanner(false);
   }
 
-  if (!showBanner) return null;
+  // Don't render until client-side hydration is complete
+  if (!isClient || !showBanner) return null;
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        backgroundColor: 'var(--paper)',
-        borderTop: '1px solid var(--ink-soft)',
-        padding: '1.5rem',
-        zIndex: 999,
-        boxShadow: '0 -4px 12px rgba(0, 0, 0, 0.1)',
-      }}
-    >
+    <div className="cookie-consent-banner">
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-          <p style={{ margin: 0, fontSize: '14px', color: 'var(--ink)', flex: 1, minWidth: '250px' }}>
-            We use cookies to enhance your experience. By continuing to browse, you accept our use of cookies.
-          </p>
+        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+          <div style={{ flex: 1, minWidth: '250px' }}>
+            <p style={{ margin: '0 0 0.75rem 0', fontSize: '14px', color: 'var(--ink)' }}>
+              We use cookies to enhance your experience. By continuing to browse, you accept our use of cookies.
+            </p>
+            <div style={{ display: 'flex', gap: '1.5rem', fontSize: '13px' }}>
+              <Link href="/privacy-policy" style={{ color: 'var(--flask)', textDecoration: 'none', borderBottom: '1px solid var(--flask)' }}>
+                Privacy Policy
+              </Link>
+              <Link href="/terms-of-use" style={{ color: 'var(--flask)', textDecoration: 'none', borderBottom: '1px solid var(--flask)' }}>
+                Terms of Use
+              </Link>
+            </div>
+          </div>
           <button
             onClick={handleAccept}
             style={{
@@ -54,6 +60,7 @@ export default function CookieConsent() {
               fontSize: '14px',
               fontWeight: 500,
               whiteSpace: 'nowrap',
+              flexShrink: 0,
             }}
           >
             Accept Cookies

@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /.next/
+Disallow: /api/
+
+Sitemap: https://www.cometfoundry.com/sitemap.xml
+
+# Specific crawl delay for aggressive bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
