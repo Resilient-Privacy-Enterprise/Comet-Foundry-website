@@ -20,7 +20,7 @@ export default function FounderPage() {
 
           <div className="founder-intro">
             <div className="founder-portrait">
-              <Image src="/assets/vishva-patel.jpg" alt="Vishva Patel" width={760} height={760} />
+              <Image src="/assets/vishva-patel.png" alt="Vishva Patel" width={760} height={760} />
             </div>
             <div className="founder-meta">
               <h2>Vishva Patel</h2>
@@ -51,7 +51,7 @@ export default function FounderPage() {
             <div className="letter-signature">
               <span className="letter-signoff hand">— Vishva</span>
               <div className="letter-author">
-                <Image src="/assets/vishva-patel.jpg" alt="Vishva Patel" className="letter-avatar" width={760} height={760} />
+                <Image src="/assets/vishva-patel.png" alt="Vishva Patel" className="letter-avatar" width={760} height={760} />
                 <div>
                   <div className="letter-author-name">Vishva Patel</div>
                   <div className="letter-author-role">Founder, Comet Foundry</div>
