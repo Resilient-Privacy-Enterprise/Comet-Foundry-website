@@ -116,6 +116,7 @@ const OFFICERS: Seat[] = [
         name: 'Elizabeth Clawson',
         photo: '/assets/team/Elizabeth-Clawson.png',
         email: 'Elizabeth.Clawson@utdallas.edu',
+        linkedin: 'https://www.linkedin.com/in/ellie-clawson-a548b8429',
       },
     },
   },
