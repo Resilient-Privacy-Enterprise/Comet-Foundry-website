@@ -6,6 +6,7 @@ import Door from '@/components/Door';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import BoredButton from '@/components/BoredButton';
+import CookieConsent from '@/components/CookieConsent';
 import OrgJsonLd from '@/components/OrgJsonLd';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </main>
         <BoredButton />
+        <CookieConsent />
         <Analytics />
         <SpeedInsights />
       </body>

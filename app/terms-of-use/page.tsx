@@ -10,10 +10,10 @@ export const metadata: Metadata = pageMetadata({
 
 const bodyHtml = `
   <h2>1. Acceptance of Terms</h2>
-  <p>These Terms of Use ("Terms") govern access to and use of cometfoundry.com (the "Site"), operated by Comet Foundry, a registered student organization at the University of Texas at Dallas ("UT Dallas"). By accessing or using the Site, you agree to be bound by these Terms. If you do not agree, do not access or use the Site.</p>
+  <p>These Terms of Use ("Terms") govern access to and use of cometfoundry.com (the "Site"), operated by Comet Foundry, a non-profit registered student organization at the University of Texas at Dallas ("UT Dallas"). By accessing or using the Site, you agree to be bound by these Terms. If you do not agree, do not access or use the Site.</p>
 
   <h2>2. About Comet Foundry</h2>
-  <p>Comet Foundry is a student-led innovation, entrepreneurship, and technology organization registered through the UT Dallas Student Organization Center (SOC). Comet Foundry maintains full independence in its programming and governance decisions. Resilient Privacy Inc. serves as Comet Foundry's founding Industry Partner in a non-voting, advisory capacity only and does not direct or control Comet Foundry's decisions.</p>
+  <p>Comet Foundry is a student-led, non-profit innovation, entrepreneurship, and technology organization registered through the UT Dallas Student Organization Center (SOC). Comet Foundry maintains full independence in its programming and governance decisions. Resilient Privacy Inc. serves as Comet Foundry's founding Industry Partner in a non-voting, advisory capacity only and does not direct or control Comet Foundry's decisions.</p>
 
   <h2>3. Eligibility</h2>
   <p>The Site is publicly accessible. Membership, officer, and voting roles are governed exclusively by the Comet Foundry Constitution and Bylaws and are reserved for currently enrolled UT Dallas students on the basis of self-attestation. Consistent with FERPA, Comet Foundry does not verify enrollment status through UT Dallas or SOC records.</p>

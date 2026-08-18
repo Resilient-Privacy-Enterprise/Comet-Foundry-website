@@ -10,7 +10,7 @@ export const metadata: Metadata = pageMetadata({
 
 const bodyHtml = `
   <h2>1. Introduction</h2>
-  <p>Comet Foundry ("Comet Foundry," "we," "us," or "our") is a student-led innovation, entrepreneurship, and technology organization registered as a student organization at the University of Texas at Dallas ("UT Dallas") through its Student Organization Center ("SOC"). This Privacy Policy ("Policy") describes how we collect, use, disclose, retain, and protect information in connection with cometfoundry.com (the "Site") and our related programs and communications (collectively, the "Services").</p>
+  <p>Comet Foundry ("Comet Foundry," "we," "us," or "our") is a student-led, non-profit innovation, entrepreneurship, and technology organization registered as a student organization at the University of Texas at Dallas ("UT Dallas") through its Student Organization Center ("SOC"). This Privacy Policy ("Policy") describes how we collect, use, disclose, retain, and protect information in connection with cometfoundry.com (the "Site") and our related programs and communications (collectively, the "Services").</p>
   <p>By accessing or using the Services, you acknowledge that you have read and understood this Policy. If you do not agree with any part of this Policy, you should discontinue use of the Services.</p>
 
   <h2>2. No Independent Verification of Student Status</h2>
