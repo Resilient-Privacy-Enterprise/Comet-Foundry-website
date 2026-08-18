@@ -60,7 +60,19 @@ const EXEC_BOARD: Seat[] = [
 ];
 
 const OFFICERS: Seat[] = [
-  { role: 'Innovation Officer', slug: 'innovation', seats: 1 },
+  {
+    role: 'Innovation Officer',
+    slug: 'innovation',
+    seats: 1,
+    filled: {
+      1: {
+        name: 'Manish Chemata',
+        photo: '/assets/team/Manish-Chemata.png',
+        email: 'JaishankarManish.ChemataVenkata@utdallas.edu',
+        linkedin: 'https://www.linkedin.com/in/manish-chemata-5b31b4277/',
+      },
+    },
+  },
   {
     role: 'Technology Officer',
     slug: 'tech',
