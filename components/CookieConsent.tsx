@@ -6,16 +6,18 @@ export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
-    const hasConsented = localStorage.getItem('cookieConsent') === '1';
+    // Show banner to all users on every visit unless they've accepted in current session
+    const acceptedThisSession = sessionStorage.getItem('cookieConsentAccepted') === '1';
     const labDoorOpen = sessionStorage.getItem('labDoorOpen') === '1';
 
-    if (!hasConsented && labDoorOpen) {
+    if (!acceptedThisSession && labDoorOpen) {
       setShowBanner(true);
     }
   }, []);
 
   function handleAccept() {
-    localStorage.setItem('cookieConsent', '1');
+    // Only remember acceptance for current session, not across visits
+    sessionStorage.setItem('cookieConsentAccepted', '1');
     setShowBanner(false);
   }
 
