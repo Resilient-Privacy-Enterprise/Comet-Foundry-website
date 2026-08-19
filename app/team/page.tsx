@@ -182,7 +182,7 @@ const ADVISORS: Seat[] = [
   { role: 'Advisor', slug: 'advisor4', seats: 1 },
 ];
 
-function OpenSeatCard({ lead, role, emailSlug }: { lead: boolean; role: string; emailSlug: string }) {
+function OpenSeatCard({ lead, role }: { lead: boolean; role: string }) {
   const abbr = role.split(' ').map((w) => w[0]).join('').toUpperCase();
   return (
     <div className="profile-card">
@@ -195,7 +195,6 @@ function OpenSeatCard({ lead, role, emailSlug }: { lead: boolean; role: string; 
         <p className="profile-invite">This seat is open — apply and make it yours.</p>
         <div className="profile-links">
           <a href={APPLY_URL} target="_blank" rel="noopener" className="profile-apply">Apply for this seat →</a>
-          <a href={`mailto:${emailSlug}@cometfoundry.com`} className="profile-email">{emailSlug}@cometfoundry.com</a>
         </div>
       </div>
     </div>
@@ -234,7 +233,7 @@ function renderSeats(seat: Seat, lead: boolean) {
     return person ? (
       <FilledSeatCard key={seat.slug} lead={lead} role={seat.role} person={person} />
     ) : (
-      <OpenSeatCard key={seat.slug} lead={lead} role={seat.role} emailSlug={seat.slug} />
+      <OpenSeatCard key={seat.slug} lead={lead} role={seat.role} />
     );
   }
   return Array.from({ length: seat.seats }, (_, i) => {
@@ -243,7 +242,7 @@ function renderSeats(seat: Seat, lead: boolean) {
     return person ? (
       <FilledSeatCard key={`${seat.slug}${seatNum}`} lead={lead} role={seat.role} person={person} />
     ) : (
-      <OpenSeatCard key={`${seat.slug}${seatNum}`} lead={lead} role={seat.role} emailSlug={`${seat.slug}${seatNum}`} />
+      <OpenSeatCard key={`${seat.slug}${seatNum}`} lead={lead} role={seat.role} />
     );
   });
 }
