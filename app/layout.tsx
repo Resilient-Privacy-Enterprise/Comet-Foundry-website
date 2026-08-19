@@ -40,8 +40,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="theme-color" content="#15161A" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="format-detection" content="telephone=no" />
-        <link rel="favicon" href="/assets/favicon.png" />
-        <link rel="shortcut icon" href="/assets/favicon.png" type="image/png" />
         <meta name="apple-mobile-web-app-title" content="Comet Foundry" />
         <meta name="application-name" content="Comet Foundry" />
         <OrgJsonLd />
