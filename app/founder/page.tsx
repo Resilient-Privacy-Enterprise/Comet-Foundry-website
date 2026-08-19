@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/metadata';
 export const metadata: Metadata = pageMetadata({
   path: '/founder',
   ogTitle: 'Founder — Comet Foundry',
-  description: 'Vishva Patel, founder of Comet Foundry — a 2x founder and cybersecurity professional building a hacker house at UT Dallas.',
+  description: 'Vishva Patel, founder of Comet Foundry — a 2x founder and cybersecurity professional building a global hacker house for builders everywhere.',
 });
 
 export default function FounderPage() {
@@ -25,11 +25,10 @@ export default function FounderPage() {
             <div className="founder-meta">
               <h2>Vishva Patel</h2>
               <div className="role">FOUNDER / COMET FOUNDRY</div>
-              <div className="sub">UT DALLAS / SPRING 25 ALUMNUS</div>
               <p className="intro">
                 <strong>Somewhere in this hacker house, the next billionaire is debugging their first prototype. I built the house.</strong>
                 <br />
-                Founder &amp; Investor, Comet Foundry || 2x Founder || 10+ Years Cybersecurity || UTD Alumni &amp; Former GSA President
+                Founder &amp; Investor, Comet Foundry || 2x Founder || 10+ Years Cybersecurity || Built at UTD, Built for Builders Everywhere
               </p>
               <span className="brand-line hand">Someone had to try. :)</span>
             </div>
@@ -43,10 +42,10 @@ export default function FounderPage() {
           <h2 className="big">Why I Started This</h2>
           <div className="letter-card">
             <div className="founder-letter">
-              <p>When I founded Comet Foundry, I wasn&apos;t trying to create another student organization. I wanted to build a place where ideas don&apos;t die in group chats.</p>
-              <p>UT Dallas is filled with ambitious people, brilliant ideas, and future founders. The challenge isn&apos;t talent — it&apos;s creating the environment where talent can collide, collaborate, and build.</p>
-              <p>My vision is simple: make UTD the best place in the country for students to start something meaningful. A place where builders find co-founders, ideas become products, and students graduate not just with a degree, but with impact.</p>
-              <p>Comet Foundry exists for those willing to take a chance on an idea, learn by building, and create the future instead of waiting for it.</p>
+              <p>When I founded Comet Foundry at UTD, I wasn&apos;t trying to create another student organization. I wanted to build a place where ideas don&apos;t die in group chats — a place that works for any ambitious student, anywhere.</p>
+              <p>There are brilliant builders scattered across campuses worldwide. The challenge isn&apos;t talent — it&apos;s that most of them are building alone. They need a place. A community. Permission.</p>
+              <p>My vision is bigger than one campus: create a global network where any student can walk in with an idea and find people who want to build it. Where builders find co-founders, ideas become products, and students graduate not just with a degree, but with something they shipped.</p>
+              <p>Comet Foundry started at UTD because that&apos;s where the idea lived. But it exists for every student willing to take a chance on an idea, learn by building, and create the future instead of waiting for it.</p>
             </div>
             <div className="letter-signature">
               <span className="letter-signoff hand">— Vishva</span>
@@ -66,10 +65,10 @@ export default function FounderPage() {
         <div className="wrap">
           <span className="tag-label" style={{ textAlign: 'left' }}>MY BET</span>
           <blockquote>&quot;I believe the best student experiences don&apos;t start with a perfectly planned idea. They start with someone saying: &apos;What if we tried?&apos;&quot;</blockquote>
-          <p className="vision-text">Comet Foundry should become a place where students don&apos;t have to wait for permission to start something. A place where someone can walk in with an unfinished idea, meet someone who wants to help, and actually make something.</p>
+          <p className="vision-text">Comet Foundry is becoming a global network where builders don&apos;t have to wait for permission to start something. Where a student in any city can find people building alongside them. Where the next big idea could come from anywhere, and the builder knows they have a place to land it.</p>
           <p className="vision-text">
-            The goal isn&apos;t simply to run more student events. The goal is to build a culture — people who build, question, experiment, collaborate, and keep showing up.{' '}
-            <span className="mono" style={{ fontSize: 13, color: 'var(--ink-soft)' }}>STATUS: BUILDING</span>
+            The goal isn&apos;t to create branches of the same thing everywhere. The goal is to build a culture of builders — people who ship, question, experiment, collaborate, and keep showing up. Wherever they are.{' '}
+            <span className="mono" style={{ fontSize: 13, color: 'var(--ink-soft)' }}>STATUS: SPREADING</span>
           </p>
         </div>
       </section>

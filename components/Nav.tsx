@@ -9,8 +9,6 @@ const APPLY_URL =
   'https://forms.cloud.microsoft/pages/responsepage.aspx?id=HR0ojU2c90uxbgMtFd6fbIhHjy7i2rpHt7VcaeT3yedUMkQwTTU4TkpUNFczMVQzS0cwUUVaWEw0WC4u&route=shorturl&b2b=true';
 
 const LINKS = [
-  { href: '/about', label: 'About', nav: 'about' },
-  { href: '/programs', label: 'Programs', nav: 'programs' },
   { href: '/projects', label: 'Projects', nav: 'projects' },
   { href: '/resources', label: 'Resources', nav: 'resources' },
 ];
@@ -31,6 +29,29 @@ export default function Nav() {
           COMET FOUNDRY
         </Link>
         <nav className="nav-links">
+          <div className="nav-item-dropdown">
+            <span className={`nav-dropdown-label${pathname.includes('/about') ? ' active' : ''}`}>About</span>
+            <div className="nav-dropdown-menu">
+              <Link href="/about" className={pathname === '/about' ? 'active' : undefined}>Overview</Link>
+              <Link href="/about/mission" className={isActive('mission') ? 'active' : undefined}>Mission</Link>
+              <Link href="/about/origin-story" className={isActive('origin-story') ? 'active' : undefined}>Origin Story</Link>
+              <Link href="/about/dual-structure" className={isActive('dual-structure') ? 'active' : undefined}>Dual Structure</Link>
+              <Link href="/about/how-we-work" className={isActive('how-we-work') ? 'active' : undefined}>How We Work</Link>
+              <Link href="/about/org-structure" className={isActive('org-structure') ? 'active' : undefined}>Org Structure</Link>
+              <Link href="/about/governance-principles" className={isActive('governance-principles') ? 'active' : undefined}>Governance</Link>
+            </div>
+          </div>
+          <div className="nav-item-dropdown">
+            <span className={`nav-dropdown-label${pathname.includes('/programs') ? ' active' : ''}`}>Programs</span>
+            <div className="nav-dropdown-menu">
+              <Link href="/programs" className={pathname === '/programs' ? 'active' : undefined}>Overview</Link>
+              <Link href="/programs/build-lab" className={pathname.includes('/programs/build-lab') ? 'active' : undefined}>Build Lab</Link>
+              <Link href="/programs/think-lab" className={pathname.includes('/programs/think-lab') ? 'active' : undefined}>Think Lab</Link>
+              <Link href="/programs/network-lab" className={pathname.includes('/programs/network-lab') ? 'active' : undefined}>Network Lab</Link>
+              <Link href="/programs/after-hours" className={pathname.includes('/programs/after-hours') ? 'active' : undefined}>After Hours</Link>
+              <Link href="/programs/semester-arc" className={pathname.includes('/programs/semester-arc') ? 'active' : undefined}>Semester Arc</Link>
+            </div>
+          </div>
           {LINKS.map((l) => (
             <Link key={l.nav} href={l.href} className={isActive(l.nav) ? 'active' : undefined}>
               {l.label}
@@ -61,6 +82,21 @@ export default function Nav() {
       </div>
       {open && <div className="mobile-menu-backdrop" onClick={() => setOpen(false)} />}
       <div id="mobile-menu" className={`mobile-menu${open ? ' open' : ''}`}>
+        <span className="mobile-menu-label">About</span>
+        <Link href="/about" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Overview</Link>
+        <Link href="/about/mission" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Mission</Link>
+        <Link href="/about/origin-story" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Origin Story</Link>
+        <Link href="/about/dual-structure" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Dual Structure</Link>
+        <Link href="/about/how-we-work" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ How We Work</Link>
+        <Link href="/about/org-structure" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Org Structure</Link>
+        <Link href="/about/governance-principles" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Governance</Link>
+        <span className="mobile-menu-label">Programs</span>
+        <Link href="/programs" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Overview</Link>
+        <Link href="/programs/build-lab" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Build Lab</Link>
+        <Link href="/programs/think-lab" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Think Lab</Link>
+        <Link href="/programs/network-lab" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Network Lab</Link>
+        <Link href="/programs/after-hours" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ After Hours</Link>
+        <Link href="/programs/semester-arc" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Semester Arc</Link>
         {LINKS.map((l) => (
           <Link key={l.nav} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>
         ))}

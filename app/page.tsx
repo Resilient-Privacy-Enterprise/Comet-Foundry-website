@@ -32,7 +32,7 @@ export default function Home() {
         <div className="wrap">
           <div className="eyebrow"><span className="dot" />LAB STATUS: OPEN</div>
           <h1 className="mega"><span>NOT A CLUB</span><span className="orange">A FOUNDRY</span></h1>
-          <div className="hero-note hand">a hacker house at UTD :)</div>
+          <div className="hero-note hand">a hacker house for builders :)</div>
           <p className="hero-sub">A hacker house for people who&apos;d rather build the weird thing than plan the safe one. Yes, this is technically a student org. We&apos;re figuring it out too.</p>
           <div className="hero-tags">
             <span className="tag">NO PERFECT IDEAS. JUST INTERESTING ONES.</span>
