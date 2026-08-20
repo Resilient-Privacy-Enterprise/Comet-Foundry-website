@@ -29,18 +29,7 @@ export default function Nav() {
           COMET FOUNDRY
         </Link>
         <nav className="nav-links">
-          <div className="nav-item-dropdown">
-            <span className={`nav-dropdown-label${pathname.includes('/about') ? ' active' : ''}`}>About</span>
-            <div className="nav-dropdown-menu">
-              <Link href="/about" className={pathname === '/about' ? 'active' : undefined}>Overview</Link>
-              <Link href="/about/mission" className={isActive('mission') ? 'active' : undefined}>Mission</Link>
-              <Link href="/about/origin-story" className={isActive('origin-story') ? 'active' : undefined}>Origin Story</Link>
-              <Link href="/about/dual-structure" className={isActive('dual-structure') ? 'active' : undefined}>Dual Structure</Link>
-              <Link href="/about/how-we-work" className={isActive('how-we-work') ? 'active' : undefined}>How We Work</Link>
-              <Link href="/about/org-structure" className={isActive('org-structure') ? 'active' : undefined}>Org Structure</Link>
-              <Link href="/about/governance-principles" className={isActive('governance-principles') ? 'active' : undefined}>Governance</Link>
-            </div>
-          </div>
+          <Link href="/about" className={pathname === '/about' ? 'active' : undefined}>About</Link>
           <div className="nav-item-dropdown">
             <span className={`nav-dropdown-label${pathname.includes('/programs') ? ' active' : ''}`}>Programs</span>
             <div className="nav-dropdown-menu">
@@ -82,14 +71,7 @@ export default function Nav() {
       </div>
       {open && <div className="mobile-menu-backdrop" onClick={() => setOpen(false)} />}
       <div id="mobile-menu" className={`mobile-menu${open ? ' open' : ''}`}>
-        <span className="mobile-menu-label">About</span>
-        <Link href="/about" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Overview</Link>
-        <Link href="/about/mission" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Mission</Link>
-        <Link href="/about/origin-story" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Origin Story</Link>
-        <Link href="/about/dual-structure" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Dual Structure</Link>
-        <Link href="/about/how-we-work" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ How We Work</Link>
-        <Link href="/about/org-structure" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Org Structure</Link>
-        <Link href="/about/governance-principles" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Governance</Link>
+        <Link href="/about" onClick={() => setOpen(false)}>About</Link>
         <span className="mobile-menu-label">Programs</span>
         <Link href="/programs" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Overview</Link>
         <Link href="/programs/build-lab" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Build Lab</Link>
