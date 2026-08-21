@@ -291,7 +291,7 @@ export default function TeamPage() {
 
       <section className="tight">
         <div className="wrap">
-          <a href="https://utdallas.box.com/v/constitutionandByLaws" target="_blank" rel="noopener">
+          <a href="https://utdallas.box.com/v/Cometfoundrylaws" target="_blank" rel="noopener">
             <button className="back-btn">View Constitution and By Laws →</button>
           </a>
         </div>
