@@ -332,37 +332,45 @@ export default function Nav() {
 
       {open && <div className="mobile-menu-backdrop" onClick={() => setOpen(false)} />}
       <div id="mobile-menu" className={`mobile-menu${open ? ' open' : ''}`}>
-        <Link href="/chapters/utd" className="mobile-chip" onClick={() => setOpen(false)}>UTD · ACTIVE</Link>
-
         <Link href="/mission/why" onClick={() => setOpen(false)}>Mission</Link>
 
-        <span className="mobile-menu-label">Chapters</span>
-        <Link href="/chapters" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ The Map</Link>
-        <Link href="/chapters/standard" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Chapter Standard</Link>
-        <Link href="/chapters/start" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Start a Chapter</Link>
+        <details className="mobile-group">
+          <summary>Chapters</summary>
+          <Link href="/chapters" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ The Map</Link>
+          <Link href="/chapters/standard" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Chapter Standard</Link>
+          <Link href="/chapters/start" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Start a Chapter</Link>
+        </details>
 
-        <span className="mobile-menu-label">The Labs</span>
-        <Link href="/programs/build-lab" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Build Lab</Link>
-        <Link href="/programs/think-lab" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Think Lab</Link>
-        <Link href="/programs/network-lab" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Network Lab</Link>
-        <Link href="/programs/after-hours" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ After Hours</Link>
-        <Link href="/programs/semester-arc" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Semester Arc</Link>
+        <details className="mobile-group">
+          <summary>The Labs</summary>
+          <Link href="/programs/build-lab" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Build Lab</Link>
+          <Link href="/programs/think-lab" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Think Lab</Link>
+          <Link href="/programs/network-lab" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Network Lab</Link>
+          <Link href="/programs/after-hours" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ After Hours</Link>
+          <Link href="/programs/semester-arc" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Semester Arc</Link>
+        </details>
 
-        <span className="mobile-menu-label">Launchpad</span>
-        <Link href="/builds" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Builds In Progress</Link>
-        <Link href="/builders" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Builder Roster</Link>
-        <Link href="/outcomes" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Outcomes</Link>
-        <Link href="/careers" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Careers</Link>
+        <details className="mobile-group">
+          <summary>Launchpad</summary>
+          <Link href="/builds" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Builds In Progress</Link>
+          <Link href="/builders" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Builder Roster</Link>
+          <Link href="/outcomes" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Outcomes</Link>
+          <Link href="/careers" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Careers</Link>
+        </details>
 
-        <span className="mobile-menu-label">Chronicle</span>
-        <Link href="/events" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Events</Link>
-        <Link href="/field-notes" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Field Notes</Link>
-        <Link href="/press" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Press & Brand</Link>
+        <details className="mobile-group">
+          <summary>Chronicle</summary>
+          <Link href="/events" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Events</Link>
+          <Link href="/field-notes" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Field Notes</Link>
+          <Link href="/press" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Press & Brand</Link>
+        </details>
 
-        <span className="mobile-menu-label">Apply</span>
-        {APPLY_LINKS.map((l) => (
-          <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ {l.label}</a>
-        ))}
+        <details className="mobile-group">
+          <summary>Apply</summary>
+          {APPLY_LINKS.map((l) => (
+            <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ {l.label}</a>
+          ))}
+        </details>
 
         <div className="mobile-actions">
           <a href="/donate" className="nav-btn secondary-mobile" onClick={() => setOpen(false)}>Fuel It ↑</a>

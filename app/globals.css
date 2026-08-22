@@ -2431,3 +2431,30 @@ footer .mono{ font-size:12px; color:var(--ink-soft); letter-spacing:.04em; }
   .utd-hero-meta{ grid-template-columns:repeat(2, 1fr); }
   .utd-meta-cell:nth-child(3), .utd-meta-cell:nth-child(5){ border-left:0; padding-left:0; }
 }
+
+/* MOBILE MENU COLLAPSIBLE GROUPS */
+.mobile-group{
+  border-bottom:1px solid var(--line);
+}
+.mobile-group > summary{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 0;
+  font-size:15px; font-weight:600; color:var(--ink);
+  cursor:pointer; list-style:none;
+  font-family:'IBM Plex Mono', monospace;
+}
+.mobile-group > summary::-webkit-details-marker{ display:none; }
+.mobile-group > summary::after{
+  content:"+"; font-size:20px; color:var(--ink-soft);
+  transition:transform .2s ease;
+  line-height:1;
+}
+.mobile-group[open] > summary::after{
+  content:"−";
+}
+.mobile-group .mobile-sub-link{
+  padding:10px 0 10px 16px;
+}
+.mobile-group .mobile-sub-link:last-child{
+  padding-bottom:16px;
+}
