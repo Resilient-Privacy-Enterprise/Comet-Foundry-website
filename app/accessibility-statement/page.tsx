@@ -70,7 +70,7 @@ export default function AccessibilityStatementPage() {
               We welcome feedback on the accessibility of the Site. If you encounter a barrier, have difficulty accessing any content or feature, or need information in an alternative format, please contact us:
             </p>
             <ul>
-              <li><strong>Email:</strong> <a href="mailto:security@cometfoundry.com">security@cometfoundry.com</a></li>
+              <li><strong>Email:</strong> <a href="mailto:legal@cometfoundry.com">legal@cometfoundry.com</a></li>
               <li><strong>Subject Line:</strong> Accessibility Feedback</li>
               <li><strong>Website:</strong> <a href="https://www.cometfoundry.com">cometfoundry.com</a></li>
             </ul>

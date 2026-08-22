@@ -64,7 +64,7 @@ export default function Door() {
       <button id="open-btn" onClick={handleOpen}>
         {status === 'opening' ? 'OPENING...' : 'OPEN LAB →'}
       </button>
-      <div id="door-meta" className="mono">EST. 2026 / UT DALLAS / LAB 01</div>
+      <div id="door-meta" className="mono">EST. 2026 / GLOBAL / CHAPTER 01 LIVE</div>
     </div>
   );
 }

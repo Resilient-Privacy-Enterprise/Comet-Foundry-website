@@ -1,14 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { validators, ALLOWED_ORIGINS } from '@/lib/validate';
+import { logSecurityEvent } from '@/lib/securityLog';
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-// Best-effort, single-instance rate limit. Serverless functions can scale to
-// multiple warm instances, so this does not guarantee a hard global cap --
-// but it does stop the common case (a script hammering the endpoint in a
-// tight loop, which lands on the same warm instance) without needing an
-// external store like Redis/Vercel KV. Revisit if abuse persists.
+// In-memory rate limiter. Best-effort across a single warm serverless instance.
 const WINDOW_MS = 60_000;
 const MAX_PER_WINDOW = 5;
+const MIN_SUBMIT_MS = 2000;
 const hits = new Map<string, number[]>();
 
 function isRateLimited(ip: string) {
@@ -16,57 +13,122 @@ function isRateLimited(ip: string) {
   const timestamps = (hits.get(ip) || []).filter((t) => now - t < WINDOW_MS);
   timestamps.push(now);
   hits.set(ip, timestamps);
-
-  // Bound memory: drop the oldest-tracked IP once the map gets large.
   if (hits.size > 5000) {
     const oldestKey = hits.keys().next().value;
     if (oldestKey) hits.delete(oldestKey);
   }
-
   return timestamps.length > MAX_PER_WINDOW;
 }
 
-// Generous cap for an email + a few thousand characters of message text --
-// rejects grossly oversized bodies before we buffer/parse them.
 const MAX_BODY_BYTES = 16_000;
 
+// Same generic 200 response for both new signups and problematic ones we don't
+// want to disclose — prevents email/user enumeration via response differences.
+const OK_RESPONSE = { ok: true, message: 'Got it. We will be in touch.' };
+
+function corsHeaders(origin: string | null) {
+  const allow = origin && ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  return {
+    'Access-Control-Allow-Origin': allow,
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    Vary: 'Origin',
+  };
+}
+
+export async function OPTIONS(req: NextRequest) {
+  return new NextResponse(null, { status: 204, headers: corsHeaders(req.headers.get('origin')) });
+}
+
 export async function POST(req: NextRequest) {
+  const origin = req.headers.get('origin');
   const ip = (req.headers.get('x-forwarded-for') || 'unknown').split(',')[0].trim();
+
+  // CORS: reject cross-origin browser requests we don't recognise.
+  if (origin && !ALLOWED_ORIGINS.includes(origin)) {
+    logSecurityEvent('CORS_VIOLATION', { origin, ip });
+    return NextResponse.json({ ok: false }, { status: 403, headers: corsHeaders(origin) });
+  }
+
+  const headers = corsHeaders(origin);
+
   if (isRateLimited(ip)) {
+    logSecurityEvent('RATE_LIMIT', { ip });
     return NextResponse.json(
       { ok: false, error: 'Too many requests, try again in a minute' },
-      { status: 429, headers: { 'Retry-After': '60' } }
+      { status: 429, headers: { ...headers, 'Retry-After': '60' } }
     );
   }
 
   const contentLength = Number(req.headers.get('content-length') || 0);
   if (contentLength > MAX_BODY_BYTES) {
-    return NextResponse.json({ ok: false, error: 'Request too large' }, { status: 413 });
+    logSecurityEvent('BODY_TOO_LARGE', { ip, contentLength });
+    return NextResponse.json({ ok: false, error: 'Request too large' }, { status: 413, headers });
   }
 
   const body = await req.json().catch(() => ({}));
-  const { email, company, subject, message } = body as {
-    email?: string;
-    company?: string;
-    subject?: string;
-    message?: string;
+  const { email, name, company, subject, message, _t } = body as {
+    email?: unknown;
+    name?: unknown;
+    company?: unknown;
+    subject?: unknown;
+    message?: unknown;
+    _t?: unknown;
   };
 
-  // Honeypot: a real visitor never fills this hidden field, bots often do.
-  if (company) {
-    return NextResponse.json({ ok: true });
+  // Honeypot — real visitors never fill this hidden field.
+  if (typeof company === 'string' && company.length > 0) {
+    logSecurityEvent('BOT_DETECTED', { ip, field: 'honeypot' });
+    return NextResponse.json(OK_RESPONSE, { headers });
   }
 
-  if (typeof email !== 'string' || !EMAIL_RE.test(email)) {
-    return NextResponse.json({ ok: false, error: 'Invalid email address' }, { status: 400 });
+  // Timing check — anything under 2s is almost certainly a bot.
+  if (typeof _t === 'number' && Number.isFinite(_t)) {
+    const elapsed = Date.now() - _t;
+    if (elapsed > 0 && elapsed < MIN_SUBMIT_MS) {
+      logSecurityEvent('FAST_SUBMIT', { ip, elapsed });
+      return NextResponse.json(OK_RESPONSE, { headers });
+    }
   }
 
-  // Free-text field, so bound its length -- this is an email body, not a database column.
-  const safeMessage = typeof message === 'string' ? message.slice(0, 4000) : undefined;
-  const emailSubject = typeof subject === 'string' && subject.trim() ? subject.trim().slice(0, 200) : 'New "Join The Foundry" signup';
+  // Validate + sanitize inputs.
+  const emailCheck = validators.email(email);
+  if (!emailCheck.valid) {
+    logSecurityEvent('INVALID_INPUT', { ip, field: 'email' });
+    return NextResponse.json({ ok: false, error: 'Invalid email address' }, { status: 400, headers });
+  }
+  const safeEmail = emailCheck.value;
+
+  let safeName = '';
+  if (name !== undefined && name !== null && name !== '') {
+    const nameCheck = validators.name(name);
+    if (!nameCheck.valid) {
+      logSecurityEvent('INVALID_INPUT', { ip, field: 'name' });
+      // Fail closed but with generic response so we don't leak enumeration.
+      return NextResponse.json(OK_RESPONSE, { headers });
+    }
+    // Flag the attempt if raw input contained script markers.
+    if (typeof name === 'string' && /<|>|javascript:|on\w+=/i.test(name)) {
+      logSecurityEvent('XSS_ATTEMPT', { ip, field: 'name' });
+    }
+    safeName = nameCheck.value;
+  }
+
+  let safeSubject = 'New "Join The Foundry" signup';
+  if (subject !== undefined && subject !== '') {
+    const subjectCheck = validators.subject(subject);
+    if (subjectCheck.valid && subjectCheck.value) safeSubject = subjectCheck.value;
+  }
+
+  let safeMessage = '';
+  if (message !== undefined && message !== '') {
+    const messageCheck = validators.message(message, 4000);
+    if (messageCheck.valid) safeMessage = messageCheck.value;
+  }
+
   const emailText = safeMessage
-    ? `New message from the ${emailSubject} form on cometfoundry.com:\n\nEmail: ${email}\n\nMessage:\n${safeMessage}`
-    : `New signup from the Join The Foundry form on cometfoundry.com:\n\nEmail: ${email}`;
+    ? `New message from the ${safeSubject} form on cometfoundry.com:\n\nName: ${safeName || '(not provided)'}\nEmail: ${safeEmail}\n\nMessage:\n${safeMessage}`
+    : `New signup from the Join The Foundry form on cometfoundry.com:\n\nName: ${safeName || '(not provided)'}\nEmail: ${safeEmail}`;
 
   try {
     const resendRes = await fetch('https://api.resend.com/emails', {
@@ -78,8 +140,8 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         from: 'Comet Foundry <subscribe@cometfoundry.com>',
         to: ['subscribe@cometfoundry.com'],
-        reply_to: email,
-        subject: emailSubject,
+        reply_to: safeEmail,
+        subject: safeSubject,
         text: emailText,
       }),
     });
@@ -87,12 +149,13 @@ export async function POST(req: NextRequest) {
     if (!resendRes.ok) {
       const errBody = await resendRes.text();
       console.error('Resend API error:', resendRes.status, errBody);
-      return NextResponse.json({ ok: false, error: 'Failed to send' }, { status: 502 });
+      // Still return generic ok to avoid leaking upstream state.
+      return NextResponse.json(OK_RESPONSE, { headers });
     }
 
-    return NextResponse.json({ ok: true });
+    return NextResponse.json(OK_RESPONSE, { headers });
   } catch (err) {
     console.error('Subscribe handler error:', err);
-    return NextResponse.json({ ok: false, error: 'Server error' }, { status: 500 });
+    return NextResponse.json({ ok: false, error: 'Server error' }, { status: 500, headers });
   }
 }

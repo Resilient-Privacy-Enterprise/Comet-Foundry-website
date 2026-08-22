@@ -63,7 +63,7 @@ const bodyHtml = `
   <p>Comet Foundry may revise these Terms from time to time. Continued use of the Site following posted changes constitutes acceptance of the revised Terms.</p>
 
   <div class="legal-contact">
-    Comet Foundry<br>The University of Texas at Dallas<br>security@cometfoundry.com
+    Comet Foundry<br>The University of Texas at Dallas<br>legal@cometfoundry.com
   </div>
 `;
 

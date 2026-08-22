@@ -52,7 +52,7 @@ export default function CookiePolicyPage() {
 
             <h3>3.1 Microsoft Forms</h3>
             <p>
-              Officer applications, the builder interest form, and campus chapter applications are built using Microsoft Forms and embedded directly within Site pages. Because these forms are rendered within our pages rather than accessed through an external link, Microsoft may set cookies on a visitor's device upon page load, in accordance with Microsoft's own policies. Further detail is available in the <a href="https://privacy.microsoft.com" target="_blank" rel="noopener">Microsoft Privacy Statement</a>.
+              Officer applications, the builder interest form, and campus chapter applications are built using Microsoft Forms and embedded directly within Site pages. Because these forms are rendered within our pages rather than accessed through an external link, Microsoft may set cookies on a visitor's device upon page load, in accordance with Microsoft's own policies. Further detail is available in the <a href="https://privacy.microsoft.com" target="_blank" rel="noopener noreferrer">Microsoft Privacy Statement</a>.
             </p>
 
             <h3>3.2 GoFundMe</h3>
@@ -114,7 +114,7 @@ export default function CookiePolicyPage() {
             <h2>7. Contact Us</h2>
             <p>Questions regarding this Policy may be directed to:</p>
             <ul>
-              <li>Email: <a href="mailto:security@cometfoundry.com">security@cometfoundry.com</a></li>
+              <li>Email: <a href="mailto:legal@cometfoundry.com">legal@cometfoundry.com</a></li>
               <li>Website: <a href="https://www.cometfoundry.com">cometfoundry.com</a></li>
             </ul>
 

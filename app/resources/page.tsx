@@ -76,7 +76,7 @@ export default function ResourcesPage() {
 
               <div className="cta-group">
                 <p className="stay-posted">Know a free resource we should add?</p>
-                <a href="https://forms.cloud.microsoft.com/r/uuxGbS5NJ3" target="_blank" rel="noopener">
+                <a href="https://forms.cloud.microsoft.com/r/uuxGbS5NJ3" target="_blank" rel="noopener noreferrer">
                   <button className="back-btn" style={{ backgroundColor: '#2db82d', marginBottom: '1rem' }}>Submit a Resource →</button>
                 </a>
                 <p className="stay-posted">Or go back home</p>

@@ -36,7 +36,7 @@ export default function PartnersPage() {
                     <p style={{ fontSize: '0.9em', lineHeight: 1.6, color: 'var(--ink-soft)', margin: '0 0 1rem 0' }}>
                       AI-native cybersecurity platform. Mentorship, internship pipeline, and funding support.
                     </p>
-                    <a href="https://www.resilientprivacy.com" target="_blank" rel="noopener" style={{ color: 'var(--flask)', fontWeight: 500, textDecoration: 'none', fontSize: '0.9em' }}>
+                    <a href="https://www.resilientprivacy.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--flask)', fontWeight: 500, textDecoration: 'none', fontSize: '0.9em' }}>
                       Visit site →
                     </a>
                   </div>

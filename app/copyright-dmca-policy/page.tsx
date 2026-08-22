@@ -77,7 +77,7 @@ export default function CopyrightDmcaPolicyPage() {
               The fastest way to reach us about a copyright concern is:
             </p>
             <ul>
-              <li><strong>Email:</strong> <a href="mailto:security@cometfoundry.com">security@cometfoundry.com</a></li>
+              <li><strong>Email:</strong> <a href="mailto:legal@cometfoundry.com">legal@cometfoundry.com</a></li>
               <li><strong>Subject Line:</strong> Copyright Concern</li>
               <li><strong>Website:</strong> <a href="https://www.cometfoundry.com">cometfoundry.com</a></li>
             </ul>

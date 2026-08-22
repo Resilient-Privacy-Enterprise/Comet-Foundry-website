@@ -79,7 +79,7 @@ export default function IpTrademarkPolicyPage() {
               If you become aware of unauthorized or improper use of the Marks, or have questions about permitted use, please contact us at:
             </p>
             <ul>
-              <li><strong>Email:</strong> <a href="mailto:security@cometfoundry.com">security@cometfoundry.com</a></li>
+              <li><strong>Email:</strong> <a href="mailto:legal@cometfoundry.com">legal@cometfoundry.com</a></li>
               <li><strong>Subject Line:</strong> Trademark or IP Inquiry</li>
               <li><strong>Website:</strong> <a href="https://www.cometfoundry.com">cometfoundry.com</a></li>
             </ul>

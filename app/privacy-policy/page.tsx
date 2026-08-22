@@ -71,7 +71,7 @@ const bodyHtml = `
     <li>Opt out of non-essential communications at any time</li>
     <li>Withdraw consent to having your information shared with Resilient Privacy Inc. without affecting your underlying membership</li>
   </ul>
-  <p>Requests may be submitted to security@cometfoundry.com.</p>
+  <p>Requests may be submitted to legal@cometfoundry.com.</p>
 
   <h2>9. Children's Privacy</h2>
   <p>The Services are not directed at children under 13, and Comet Foundry does not knowingly collect information from children under 13.</p>
@@ -83,7 +83,7 @@ const bodyHtml = `
   <p>Comet Foundry may revise this Policy from time to time. Material changes will be posted on this page with a revised "Last Updated" date. Continued use of the Services constitutes acceptance of the revised Policy.</p>
 
   <div class="legal-contact">
-    Comet Foundry<br>The University of Texas at Dallas<br>security@cometfoundry.com
+    Comet Foundry<br>The University of Texas at Dallas<br>legal@cometfoundry.com
   </div>
 `;
 

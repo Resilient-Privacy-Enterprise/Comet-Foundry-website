@@ -71,7 +71,7 @@ export default function NonDiscriminationStatementPage() {
               Any individual who believes they have experienced or witnessed discrimination in violation of this Statement is encouraged to report the concern so it can be reviewed. Reports may be submitted to:
             </p>
             <ul>
-              <li><strong>Email:</strong> <a href="mailto:security@cometfoundry.com">security@cometfoundry.com</a></li>
+              <li><strong>Email:</strong> <a href="mailto:legal@cometfoundry.com">legal@cometfoundry.com</a></li>
               <li><strong>Subject Line:</strong> Non-Discrimination Concern</li>
             </ul>
             <p>
@@ -101,7 +101,7 @@ export default function NonDiscriminationStatementPage() {
             <h2>10. Contact Us</h2>
             <p>Questions about this Statement may be directed to:</p>
             <ul>
-              <li><strong>Email:</strong> <a href="mailto:security@cometfoundry.com">security@cometfoundry.com</a></li>
+              <li><strong>Email:</strong> <a href="mailto:legal@cometfoundry.com">legal@cometfoundry.com</a></li>
               <li><strong>Website:</strong> <a href="https://www.cometfoundry.com">cometfoundry.com</a></li>
             </ul>
 

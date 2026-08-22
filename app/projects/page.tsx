@@ -50,7 +50,7 @@ export default function ProjectsPage() {
             className="rsvp-btn"
             href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=HR0ojU2c90uxbgMtFd6fbIhHjy7i2rpHt7VcaeT3yedUMkQwTTU4TkpUNFczMVQzS0cwUUVaWEw0WC4u&route=shorturl&b2b=true"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             style={{ background: 'var(--ink)', color: 'var(--paper)' }}
           >
             START BUILDING →

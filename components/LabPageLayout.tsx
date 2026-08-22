@@ -32,12 +32,13 @@ export default function LabPageLayout({
         </span>
         <div className="wrap">
           <div className="breadcrumb">
-            <Link href="/">Home</Link> / <Link href="/programs">Programs</Link> / {name}
+            <Link href="/">Home</Link> / <Link href="/programs">The Labs</Link> / {name}
           </div>
           <span className="code mono" style={{ display: 'block', marginBottom: 10, color: accent }}>LAB / {num}</span>
           <h1>{name}</h1>
           <span className="hero-note hand" style={{ color: accent }}>{handNote}</span>
           <p className="lede">{intro}</p>
+          <p className="mono" style={{ fontSize: '11px', color: 'var(--ink-soft)', letterSpacing: '.08em', marginTop: '12px' }}>Every Comet Foundry chapter runs this lab. Every semester.</p>
         </div>
       </section>
 
@@ -96,6 +97,9 @@ export default function LabPageLayout({
               </Link>
             ))}
           </ScrollReveal>
+          <div style={{ marginTop: '40px' }}>
+            <Link href="/programs" className="mono" style={{ fontSize: '13px', letterSpacing: '.08em', color: 'var(--ink-soft)', textDecoration: 'none' }}>← Back to The Labs</Link>
+          </div>
         </div>
       </section>
     </>

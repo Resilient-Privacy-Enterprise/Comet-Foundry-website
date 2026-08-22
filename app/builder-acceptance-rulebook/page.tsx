@@ -146,7 +146,7 @@ export default function BuilderAcceptanceRulebookPage() {
             <h2>Contact Us</h2>
             <p>Questions about this Rulebook or the builder application process may be directed to:</p>
             <ul>
-              <li><strong>Email:</strong> <a href="mailto:security@cometfoundry.com">security@cometfoundry.com</a></li>
+              <li><strong>Email:</strong> <a href="mailto:legal@cometfoundry.com">legal@cometfoundry.com</a></li>
               <li><strong>Subject Line:</strong> Builder Application Inquiry</li>
               <li><strong>Website:</strong> <a href="https://www.cometfoundry.com">cometfoundry.com</a></li>
             </ul>

@@ -81,7 +81,7 @@ export default function CodeOfConductPage() {
               If you experience or witness behavior that violates this Code, we encourage you to report it as soon as reasonably possible so it can be addressed. Reports may be submitted to:
             </p>
             <ul>
-              <li><strong>Email:</strong> <a href="mailto:security@cometfoundry.com">security@cometfoundry.com</a></li>
+              <li><strong>Email:</strong> <a href="mailto:legal@cometfoundry.com">legal@cometfoundry.com</a></li>
               <li><strong>Subject Line:</strong> Code of Conduct Concern</li>
             </ul>
             <p>
@@ -122,7 +122,7 @@ export default function CodeOfConductPage() {
             <h2>11. Contact Us</h2>
             <p>Questions about this Code may be directed to:</p>
             <ul>
-              <li><strong>Email:</strong> <a href="mailto:security@cometfoundry.com">security@cometfoundry.com</a></li>
+              <li><strong>Email:</strong> <a href="mailto:legal@cometfoundry.com">legal@cometfoundry.com</a></li>
               <li><strong>Website:</strong> <a href="https://www.cometfoundry.com">cometfoundry.com</a></li>
             </ul>
 

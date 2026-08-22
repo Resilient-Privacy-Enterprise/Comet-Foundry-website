@@ -119,7 +119,7 @@ export default function EventsCalendar() {
           <div className="who">
             <b>info@cometfoundry.com</b>
             <div className="tz">Events shown in time zone: (GMT-05:00) Central Time — Chicago</div>
-            <a className="outlook-link" href={outlookHref} target="_blank" rel="noopener">Add to Outlook Calendar →</a>
+            <a className="outlook-link" href={outlookHref} target="_blank" rel="noopener noreferrer">Add to Outlook Calendar →</a>
           </div>
           <div className="cal-provider"><span className="sq"><span></span><span></span><span></span><span></span></span> Microsoft Outlook</div>
         </div>

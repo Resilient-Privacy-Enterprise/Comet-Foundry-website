@@ -111,7 +111,7 @@ export default function DonationRefundPolicyPage() {
             <h2>12. Contact Us</h2>
             <p>Questions regarding this Policy, or requests related to a specific Donation, may be directed to:</p>
             <ul>
-              <li>Email: <a href="mailto:security@cometfoundry.com">security@cometfoundry.com</a></li>
+              <li>Email: <a href="mailto:legal@cometfoundry.com">legal@cometfoundry.com</a></li>
               <li>Website: <a href="https://www.cometfoundry.com">cometfoundry.com</a></li>
             </ul>
 

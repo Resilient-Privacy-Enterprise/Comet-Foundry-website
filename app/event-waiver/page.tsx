@@ -81,7 +81,7 @@ export default function EventWaiverPage() {
             <h2>9. Contact Us</h2>
             <p>Questions about this Notice, or requests to opt out of photo or video use, may be directed to:</p>
             <ul>
-              <li><strong>Email:</strong> <a href="mailto:security@cometfoundry.com">security@cometfoundry.com</a></li>
+              <li><strong>Email:</strong> <a href="mailto:legal@cometfoundry.com">legal@cometfoundry.com</a></li>
               <li><strong>Subject Line:</strong> Event Waiver or Media Consent</li>
               <li><strong>Website:</strong> <a href="https://www.cometfoundry.com">cometfoundry.com</a></li>
             </ul>

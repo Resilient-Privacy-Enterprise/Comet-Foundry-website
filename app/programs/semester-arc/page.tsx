@@ -13,10 +13,12 @@ export default function SemesterArcPage() {
     <>
       <section className="page-hero">
         <div className="wrap">
-          <div className="breadcrumb"><Link href="/">Home</Link> / <Link href="/programs">Programs</Link> / Semester Arc</div>
+          <div className="breadcrumb"><Link href="/">Home</Link> / <Link href="/programs">The Labs</Link> / Semester Arc</div>
           <h1>Semester Arc</h1>
           <span className="hero-note hand">how it flows</span>
           <p className="lede">One semester. Three phases. Ship something real.</p>
+          <span className="mono" style={{ display: 'block', marginTop: '24px', fontSize: '10px', letterSpacing: '.14em', color: 'var(--flask)' }}>EVERY CHAPTER · EVERY SEMESTER</span>
+          <p style={{ marginTop: '8px', fontSize: '14px', color: 'var(--ink-soft)', lineHeight: 1.6, maxWidth: '640px' }}>The Semester Arc is not optional. Every Comet Foundry chapter runs Kickoff, Experiments, and Demo Day — in that order, every semester, at every campus.</p>
         </div>
       </section>
 
@@ -148,11 +150,18 @@ export default function SemesterArcPage() {
         </div>
       </section>
 
+      <section className="mission-block mission-cta-section">
+        <div className="wrap" style={{ textAlign: 'center' }}>
+          <span className="block-eyebrow mono">NEXT STEP</span>
+          <h2 style={{ fontSize: 'clamp(24px, 4vw, 42px)', fontWeight: 800, letterSpacing: '-.02em', textTransform: 'uppercase', margin: '16px 0 16px' }}>The Final Experiment</h2>
+          <p style={{ fontSize: '15px', color: 'var(--ink-soft)', lineHeight: 1.7, maxWidth: '560px', margin: '0 auto 28px' }}>Demo Day is where the semester arc ends. Show what you built. Tell your story. Ship it.</p>
+          <Link className="hero-cta-primary" href="/demo-day">SEE DEMO DAY →</Link>
+        </div>
+      </section>
+
       <section className="tight">
         <div className="wrap">
-          <div className="navigation-links">
-            <Link href="/programs" className="nav-link">Back to Programs</Link>
-          </div>
+          <Link href="/programs" className="mono" style={{ fontSize: '13px', letterSpacing: '.08em', color: 'var(--ink-soft)', textDecoration: 'none' }}>← Back to The Labs</Link>
         </div>
       </section>
     </>

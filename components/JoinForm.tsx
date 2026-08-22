@@ -8,6 +8,7 @@ export default function JoinForm() {
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
+  const renderTimeRef = useRef<number>(Date.now());
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -24,6 +25,7 @@ export default function JoinForm() {
           name: nameRef.current?.value,
           email: emailRef.current?.value,
           company: honeypotRef.current?.value ?? '',
+          _t: renderTimeRef.current,
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -44,7 +46,7 @@ export default function JoinForm() {
   return (
     <form className="join-form" id="join-form" onSubmit={handleSubmit}>
       <input ref={nameRef} type="text" name="name" placeholder="Your full name" required aria-label="Full name" />
-      <input ref={emailRef} type="email" name="email" placeholder="you@utdallas.edu" required aria-label="Email address" />
+      <input ref={emailRef} type="email" name="email" placeholder="you@email.com" required aria-label="Email address" />
       <input ref={honeypotRef} type="text" name="company" className="hp-field" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <button type="submit" disabled={disabled}>{buttonText}</button>
     </form>

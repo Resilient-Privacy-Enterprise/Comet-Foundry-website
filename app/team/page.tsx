@@ -194,7 +194,7 @@ function OpenSeatCard({ lead, role }: { lead: boolean; role: string }) {
         <h3>{role}</h3>
         <p className="profile-invite">This seat is open — apply and make it yours.</p>
         <div className="profile-links">
-          <a href={APPLY_URL} target="_blank" rel="noopener" className="profile-apply">Apply for this seat →</a>
+          <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className="profile-apply">Apply for this seat →</a>
         </div>
       </div>
     </div>
@@ -217,7 +217,7 @@ function FilledSeatCard({ lead, role, person }: { lead: boolean; role: string; p
         <div className="profile-links">
           <a href={`mailto:${person.email}`}>{person.email}</a>
           {person.linkedin ? (
-            <a href={person.linkedin} target="_blank" rel="noopener">LinkedIn →</a>
+            <a href={person.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn →</a>
           ) : (
             <a href="javascript:void(0)" className="linkedin-placeholder">Add LinkedIn →</a>
           )}
@@ -291,7 +291,7 @@ export default function TeamPage() {
 
       <section className="tight">
         <div className="wrap">
-          <a href="https://utdallas.box.com/v/Cometfoundrylaws" target="_blank" rel="noopener">
+          <a href="https://utdallas.box.com/v/Cometfoundrylaws" target="_blank" rel="noopener noreferrer">
             <button className="back-btn">View Constitution and By Laws →</button>
           </a>
         </div>
@@ -303,7 +303,7 @@ export default function TeamPage() {
             <span className="num mono">JOIN THEM</span>
             <h2>Be On This Page Next</h2>
           </div>
-          <a className="rsvp-btn" href={APPLY_URL} target="_blank" rel="noopener" style={{ background: 'var(--ink)', color: 'var(--paper)' }}>APPLY →</a>
+          <a className="rsvp-btn" href={APPLY_URL} target="_blank" rel="noopener noreferrer" style={{ background: 'var(--ink)', color: 'var(--paper)' }}>APPLY →</a>
         </div>
       </section>
     </>

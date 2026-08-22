@@ -53,7 +53,7 @@ export default function BugReportForm() {
         {status === 'sending' ? 'SENDING...' : status === 'sent' ? 'SENT ✓' : 'REPORT BUG →'}
       </button>
       {status === 'sent' && <p className="form-status">Thanks — got it. We&apos;ll take a look.</p>}
-      {status === 'error' && <p className="form-status error">Something went wrong. Try again, or email info@cometfoundry.com directly.</p>}
+      {status === 'error' && <p className="form-status error">Something went wrong. Try again, or email security@cometfoundry.com directly.</p>}
     </form>
   );
 }

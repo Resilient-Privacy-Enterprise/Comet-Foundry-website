@@ -14,7 +14,8 @@ export default function EventsPage() {
     <>
       <section className="page-hero">
         <div className="wrap">
-          <div className="breadcrumb"><Link href="/">Home</Link> / Events</div>
+          <div className="breadcrumb"><Link href="/">Home</Link> / Chronicle / Events</div>
+          <span className="mono" style={{ display: 'block', fontSize: '10px', letterSpacing: '.14em', color: 'var(--flask)', marginBottom: '12px' }}>CHRONICLE / EVENTS</span>
           <h1>What&apos;s Happening</h1>
           <span className="hero-note hand">you should probably come to this</span>
           <p className="lede">Build sprints, critique nights, demo nights, and the occasional excuse to touch grass.</p>

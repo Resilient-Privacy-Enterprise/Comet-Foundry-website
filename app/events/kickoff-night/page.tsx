@@ -65,7 +65,7 @@ export default function KickoffNightPage() {
             className="rsvp-btn"
             href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=HR0ojU2c90uxbgMtFd6fbIhHjy7i2rpHt7VcaeT3yedUOVlFMEpKR0dYMDhLUzAyMjQ2QklROFVaVC4u&route=shorturl"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             style={{ background: 'var(--ink)', color: 'var(--paper)' }}
           >
             RSVP →
