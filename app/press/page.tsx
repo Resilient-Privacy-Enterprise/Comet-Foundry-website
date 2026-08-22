@@ -19,18 +19,6 @@ const swatches = [
   { name: 'ACCENT TEAL', hex: '#1F6F5C', text: '#F7F6F2' },
 ];
 
-const facts = [
-  { label: 'Founded', body: '2026 at UT Dallas, Texas.' },
-  { label: 'Structure', body: 'Independent 501(c)(3) nonprofit — pending IRS determination.' },
-  { label: 'Active chapters', body: '1 — UT Dallas (Chapter 01).' },
-  { label: 'Incoming chapters', body: '6 — UT Austin, Texas A&M, Rice, Georgia Tech, Berkeley, MIT.' },
-  { label: 'Total applicants to date', body: '257 — before first semester began.' },
-  { label: 'The program', body: 'Four Labs (Build, Think, Network, After Hours) + Semester Arc (Kickoff → Experiments → Demo Day) running every semester at every chapter.' },
-  { label: 'Founder', body: 'Vishva Patel — 2x founder, 10+ years cybersecurity, former GSA President at UTD.' },
-  { label: 'Website', body: 'cometfoundry.com' },
-  { label: 'Press contact', body: PRESS_EMAIL },
-];
-
 const h2Style = { fontSize: 'clamp(24px, 4vw, 42px)', fontWeight: 800, letterSpacing: '-.02em', textTransform: 'uppercase' as const, margin: '0 0 16px' };
 const cardStyle = { border: '1px solid var(--line)', padding: '28px 24px' };
 
@@ -223,21 +211,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* QUICK FACTS */}
-      <section className="mission-block">
-        <div className="wrap">
-          <span className="block-eyebrow mono">PRESS / 006</span>
-          <h2 style={h2Style}>Quick facts.</h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-            {facts.map((f) => (
-              <div key={f.label} style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: '20px', padding: '16px 0', borderBottom: '1px solid var(--line)' }}>
-                <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--ink)' }}>{f.label}:</span>
-                <span style={{ fontSize: '14px', color: 'var(--ink-soft)', lineHeight: 1.6 }}>{f.body}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   );
 }

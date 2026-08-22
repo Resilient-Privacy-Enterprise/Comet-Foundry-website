@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useCallback, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -26,6 +27,9 @@ const DONATE_URL = '/donate';
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', open);
@@ -335,8 +339,10 @@ export default function Nav() {
         </button>
       </div>
 
-      {open && <div className="mobile-menu-backdrop" onClick={() => setOpen(false)} />}
-      <div id="mobile-menu" className={`mobile-menu${open ? ' open' : ''}`}>
+      {mounted && createPortal(
+        <>
+          {open && <div className="mobile-menu-backdrop" onClick={() => setOpen(false)} />}
+          <div id="mobile-menu" className={`mobile-menu${open ? ' open' : ''}`}>
         <Link href="/mission/why" onClick={() => setOpen(false)}>Mission</Link>
 
         <details className="mobile-group">
@@ -382,6 +388,9 @@ export default function Nav() {
           <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className="nav-btn primary-mobile" onClick={() => setOpen(false)}>APPLY →</a>
         </div>
       </div>
+        </>,
+        document.body
+      )}
     </header>
   );
 }
