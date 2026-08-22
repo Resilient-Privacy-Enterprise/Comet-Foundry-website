@@ -66,7 +66,7 @@ main.ready{ visibility:visible; }
 .wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
 
 header.nav{
-  position:sticky; top:0; z-index:100;
+  position:sticky; top:0; z-index:130;
   background:rgba(247,246,242,.88); backdrop-filter:blur(6px);
   border-bottom:1px solid var(--line);
 }
@@ -248,14 +248,17 @@ header.nav .wrap{ display:flex; align-items:center; justify-content:space-betwee
 .nav-toggle:hover{ border-color:var(--ink); }
 .nav-toggle:focus-visible{ outline:2px solid var(--hazard); outline-offset:2px; }
 .mobile-menu-backdrop{
-  position:fixed; inset:0; background:rgba(0,0,0,.3);
-  z-index:98; pointer-events:auto;
+  position:fixed; inset:0; background:rgba(0,0,0,.45);
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  z-index:110; pointer-events:auto;
 }
 .mobile-menu{
-  display:none; flex-direction:column; position:fixed; top:76px; left:0; right:0;
-  max-height:calc(100vh - 76px); overflow-y:auto; -webkit-overflow-scrolling:touch;
-  z-index:99; border-top:1px solid var(--line); background:var(--paper);
+  display:none; flex-direction:column; position:fixed; top:0; left:0; right:0; bottom:0;
+  max-height:100vh; overflow-y:auto; -webkit-overflow-scrolling:touch;
+  z-index:120; background:var(--paper);
+  padding-top:76px;
 }
+body:has(.mobile-menu.open){ overflow:hidden; }
 .mobile-menu.open{ display:flex; }
 .mobile-menu a{
   padding:18px 32px; font-family:'IBM Plex Mono',monospace; font-size:15px; letter-spacing:.04em;
