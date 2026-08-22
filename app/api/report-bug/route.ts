@@ -2,10 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import { validators, ALLOWED_ORIGINS } from '@/lib/validate';
 import { logSecurityEvent } from '@/lib/securityLog';
 
-// In-memory rate limiter. Best-effort across a single warm serverless instance.
+// Dedicated bug-report channel — routes to security@ with a distinct subject line
+// so it never gets mixed with newsletter signups. Same rate-limit + validation
+// posture as /api/subscribe.
+
 const WINDOW_MS = 60_000;
-const MAX_PER_WINDOW = 5;
+const MAX_PER_WINDOW = 3;
 const MIN_SUBMIT_MS = 2000;
+const MAX_BODY_BYTES = 32_000;
 const hits = new Map<string, number[]>();
 
 function isRateLimited(ip: string) {
@@ -20,11 +24,7 @@ function isRateLimited(ip: string) {
   return timestamps.length > MAX_PER_WINDOW;
 }
 
-const MAX_BODY_BYTES = 16_000;
-
-// Same generic 200 response for both new signups and problematic ones we don't
-// want to disclose — prevents email/user enumeration via response differences.
-const OK_RESPONSE = { ok: true, message: 'Got it. We will be in touch.' };
+const OK_RESPONSE = { ok: true, message: 'Thanks — we will take a look.' };
 
 function corsHeaders(origin: string | null) {
   const allow = origin && ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
@@ -44,16 +44,15 @@ export async function POST(req: NextRequest) {
   const origin = req.headers.get('origin');
   const ip = (req.headers.get('x-forwarded-for') || 'unknown').split(',')[0].trim();
 
-  // CORS: reject cross-origin browser requests we don't recognise.
   if (origin && !ALLOWED_ORIGINS.includes(origin)) {
-    logSecurityEvent('CORS_VIOLATION', { origin, ip });
+    logSecurityEvent('CORS_VIOLATION', { origin, ip, route: 'report-bug' });
     return NextResponse.json({ ok: false }, { status: 403, headers: corsHeaders(origin) });
   }
 
   const headers = corsHeaders(origin);
 
   if (isRateLimited(ip)) {
-    logSecurityEvent('RATE_LIMIT', { ip });
+    logSecurityEvent('RATE_LIMIT', { ip, route: 'report-bug' });
     return NextResponse.json(
       { ok: false, error: 'Too many requests, try again in a minute' },
       { status: 429, headers: { ...headers, 'Retry-After': '60' } }
@@ -62,78 +61,57 @@ export async function POST(req: NextRequest) {
 
   const contentLength = Number(req.headers.get('content-length') || 0);
   if (contentLength > MAX_BODY_BYTES) {
-    logSecurityEvent('BODY_TOO_LARGE', { ip, contentLength });
+    logSecurityEvent('BODY_TOO_LARGE', { ip, contentLength, route: 'report-bug' });
     return NextResponse.json({ ok: false, error: 'Request too large' }, { status: 413, headers });
   }
 
   const body = await req.json().catch(() => ({}));
-  const { email, name, company, subject, message, _t } = body as {
+  const { email, company, message, url, _t } = body as {
     email?: unknown;
-    name?: unknown;
     company?: unknown;
-    subject?: unknown;
     message?: unknown;
+    url?: unknown;
     _t?: unknown;
   };
 
-  // Honeypot — real visitors never fill this hidden field.
   if (typeof company === 'string' && company.length > 0) {
-    logSecurityEvent('BOT_DETECTED', { ip, field: 'honeypot' });
+    logSecurityEvent('BOT_DETECTED', { ip, field: 'honeypot', route: 'report-bug' });
     return NextResponse.json(OK_RESPONSE, { headers });
   }
 
-  // Timing check — anything under 2s is almost certainly a bot.
   if (typeof _t === 'number' && Number.isFinite(_t)) {
     const elapsed = Date.now() - _t;
     if (elapsed > 0 && elapsed < MIN_SUBMIT_MS) {
-      logSecurityEvent('FAST_SUBMIT', { ip, elapsed });
+      logSecurityEvent('FAST_SUBMIT', { ip, elapsed, route: 'report-bug' });
       return NextResponse.json(OK_RESPONSE, { headers });
     }
   }
 
-  // Validate + sanitize inputs.
   const emailCheck = validators.email(email);
   if (!emailCheck.valid) {
-    logSecurityEvent('INVALID_INPUT', { ip, field: 'email' });
+    logSecurityEvent('INVALID_INPUT', { ip, field: 'email', route: 'report-bug' });
     return NextResponse.json({ ok: false, error: 'Invalid email address' }, { status: 400, headers });
   }
   const safeEmail = emailCheck.value;
 
-  let safeName = '';
-  if (name !== undefined && name !== null && name !== '') {
-    const nameCheck = validators.name(name);
-    if (!nameCheck.valid) {
-      logSecurityEvent('INVALID_INPUT', { ip, field: 'name' });
-      // Fail closed but with generic response so we don't leak enumeration.
-      return NextResponse.json(OK_RESPONSE, { headers });
-    }
-    // Flag the attempt if raw input contained script markers.
-    if (typeof name === 'string' && /<|>|javascript:|on\w+=/i.test(name)) {
-      logSecurityEvent('XSS_ATTEMPT', { ip, field: 'name' });
-    }
-    safeName = nameCheck.value;
+  const messageCheck = validators.message(message, 8000);
+  if (!messageCheck.valid) {
+    logSecurityEvent('INVALID_INPUT', { ip, field: 'message', route: 'report-bug' });
+    return NextResponse.json({ ok: false, error: 'Message is required' }, { status: 400, headers });
+  }
+  const safeMessage = messageCheck.value;
+
+  let safeUrl = '';
+  if (typeof url === 'string' && url) {
+    const urlCheck = validators.message(url, 500);
+    if (urlCheck.valid) safeUrl = urlCheck.value;
   }
 
-  let safeSubject = 'New "Join The Foundry" signup';
-  if (subject !== undefined && subject !== '') {
-    const subjectCheck = validators.subject(subject);
-    if (subjectCheck.valid && subjectCheck.value) safeSubject = subjectCheck.value;
-  }
-
-  let safeMessage = '';
-  if (message !== undefined && message !== '') {
-    const messageCheck = validators.message(message, 4000);
-    if (messageCheck.valid) safeMessage = messageCheck.value;
-  }
-
-  const emailText = safeMessage
-    ? `New message from the ${safeSubject} form on cometfoundry.com:\n\nName: ${safeName || '(not provided)'}\nEmail: ${safeEmail}\n\nMessage:\n${safeMessage}`
-    : `New signup from the Join The Foundry form on cometfoundry.com:\n\nName: ${safeName || '(not provided)'}\nEmail: ${safeEmail}`;
+  const emailText = `New bug report from cometfoundry.com\n\nFrom: ${safeEmail}\nPage: ${safeUrl || '(not provided)'}\n\nReport:\n${safeMessage}`;
 
   const resendKey = process.env.RESEND_API_KEY;
   if (!resendKey) {
-    console.error('RESEND_API_KEY missing — subscribe endpoint cannot forward mail.');
-    // Fail closed but with generic response so we don't leak configuration state.
+    console.error('RESEND_API_KEY missing — report-bug endpoint cannot forward mail.');
     return NextResponse.json(OK_RESPONSE, { headers });
   }
 
@@ -146,25 +124,21 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         from: 'Comet Foundry <subscribe@cometfoundry.com>',
-        to: ['subscribe@cometfoundry.com'],
-        // reply_to intentionally omitted — surfacing the submitter's address
-        // as Reply-To lets a spoofed signup weaponize the admin's Reply button.
-        // The email address is included in the body instead for auditability.
-        subject: safeSubject,
+        to: ['security@cometfoundry.com'],
+        subject: `[BUG] ${safeUrl || 'cometfoundry.com'}`,
         text: emailText,
       }),
     });
 
     if (!resendRes.ok) {
       const errBody = await resendRes.text();
-      console.error('Resend API error:', resendRes.status, errBody);
-      // Still return generic ok to avoid leaking upstream state.
+      console.error('Resend API error (report-bug):', resendRes.status, errBody);
       return NextResponse.json(OK_RESPONSE, { headers });
     }
 
     return NextResponse.json(OK_RESPONSE, { headers });
   } catch (err) {
-    console.error('Subscribe handler error:', err);
+    console.error('report-bug handler error:', err);
     return NextResponse.json({ ok: false, error: 'Server error' }, { status: 500, headers });
   }
 }

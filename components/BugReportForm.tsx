@@ -7,6 +7,8 @@ export default function BugReportForm() {
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
+  // eslint-disable-next-line react-hooks/purity
+  const renderTimeRef = useRef<number>(Date.now());
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -15,14 +17,15 @@ export default function BugReportForm() {
     setStatus('sending');
 
     try {
-      const res = await fetch('/api/subscribe', {
+      const res = await fetch('/api/report-bug', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: emailRef.current?.value,
           message: messageRef.current?.value,
-          subject: 'Website bug reporting',
+          url: typeof window !== 'undefined' ? window.location.href : '',
           company: honeypotRef.current?.value ?? '',
+          _t: renderTimeRef.current,
         }),
       });
       const data = await res.json().catch(() => ({}));
