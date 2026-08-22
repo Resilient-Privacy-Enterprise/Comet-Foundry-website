@@ -33,6 +33,9 @@ export default function Nav() {
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', open);
+    if (!open) {
+      document.querySelectorAll('.mobile-menu details[open]').forEach((el) => el.removeAttribute('open'));
+    }
     return () => document.body.classList.remove('menu-open');
   }, [open]);
   const [activePanel, setActivePanel] = useState<string | null>(null);
@@ -343,7 +346,16 @@ export default function Nav() {
         <>
           {open && <div className="mobile-menu-backdrop" onClick={() => setOpen(false)} />}
           <div id="mobile-menu" className={`mobile-menu${open ? ' open' : ''}`}>
-        <Link href="/mission/why" onClick={() => setOpen(false)}>Mission</Link>
+        <details className="mobile-group">
+          <summary>Mission</summary>
+          <Link href="/mission/why" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Why We Exist</Link>
+          <Link href="/mission/doctrine" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ The Doctrine</Link>
+          <Link href="/leadership" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Foundation Leadership</Link>
+          <Link href="/leadership/founder" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ The Founder&apos;s Letter</Link>
+          <Link href="/backers" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ The Backers</Link>
+          <Link href="/donate" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Fuel It</Link>
+          <Link href="/for-universities" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ For Universities</Link>
+        </details>
 
         <details className="mobile-group">
           <summary>Chapters</summary>

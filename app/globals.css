@@ -260,14 +260,18 @@ header.nav .wrap{ display:flex; align-items:center; justify-content:space-betwee
   position:fixed; inset:0; z-index:120;
   background:var(--paper); overflow-y:auto;
   -webkit-overflow-scrolling:touch;
-  padding:120px 0 40px;
+  padding:128px 20px 24px;
+  padding-left:max(20px, env(safe-area-inset-left));
+  padding-right:max(20px, env(safe-area-inset-right));
+  padding-bottom:max(24px, env(safe-area-inset-bottom));
 }
 body.menu-open{ overflow:hidden; }
 .mobile-menu a{
-  padding:18px 32px; font-family:'IBM Plex Mono',monospace; font-size:15px; letter-spacing:.04em;
+  padding:12px 0; font-family:'IBM Plex Mono',monospace; font-size:14px; letter-spacing:.04em;
   color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);
   display:block; transition:background .15s ease;
 }
+.mobile-menu a.mobile-sub-link{ padding-left:16px; font-size:13px; }
 .mobile-menu a:active{ background:rgba(31,111,92,.08); }
 .mobile-menu a.cta-row{ color:var(--flask); font-weight:500; }
 .mobile-menu a.active{ color:var(--flask); }
@@ -2444,14 +2448,14 @@ footer .mono{ font-size:12px; color:var(--ink-soft); letter-spacing:.04em; }
 }
 .mobile-group > summary{
   display:flex; align-items:center; justify-content:space-between;
-  padding:16px 0;
-  font-size:15px; font-weight:600; color:var(--ink);
+  padding:12px 0;
+  font-size:14px; font-weight:600; color:var(--ink);
   cursor:pointer; list-style:none;
   font-family:'IBM Plex Mono', monospace;
 }
 .mobile-group > summary::-webkit-details-marker{ display:none; }
 .mobile-group > summary::after{
-  content:"+"; font-size:20px; color:var(--ink-soft);
+  content:"+"; font-size:18px; color:var(--ink-soft);
   transition:transform .2s ease;
   line-height:1;
 }
@@ -2459,8 +2463,8 @@ footer .mono{ font-size:12px; color:var(--ink-soft); letter-spacing:.04em; }
   content:"−";
 }
 .mobile-group .mobile-sub-link{
-  padding:10px 0 10px 16px;
+  padding:8px 0 8px 16px;
 }
 .mobile-group .mobile-sub-link:last-child{
-  padding-bottom:16px;
+  padding-bottom:12px;
 }
