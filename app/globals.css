@@ -844,7 +844,7 @@ footer .mono{ font-size:12px; color:var(--ink-soft); letter-spacing:.04em; }
 .campus-map{ position:absolute; inset:0; pointer-events:none; }
 .campus-map-svg{ position:absolute; inset:0; width:100%; height:100%; display:block; }
 .campus-title{ position:absolute; left:0; bottom:0; margin:0; font-size:clamp(26px,4.2vw,72px); font-weight:700; line-height:.94; letter-spacing:-.02em; text-transform:uppercase; }
-.campus-cta{ position:absolute; right:0; bottom:0; margin:0; display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
+.campus-cta{ position:absolute; right:0; bottom:0; margin:0; display:flex; flex-direction:column; align-items:flex-end; gap:12px; padding:16px 20px; background:var(--ink); border-radius:2px; box-shadow:0 0 40px 20px var(--ink); }
 .campus-cta-note{ font-size:clamp(16px,1.8vw,22px); color:var(--utd-orange); transform:rotate(-2deg); }
 .campus-cta-btn{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.06em; color:var(--paper); background:none; border:1.5px solid var(--paper); padding:10px 20px; text-decoration:none; display:inline-block; cursor:pointer; transition:background .2s, color .2s; }
 .campus-cta-btn:hover{ background:var(--paper); color:var(--ink); }

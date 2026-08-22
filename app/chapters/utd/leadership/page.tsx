@@ -92,29 +92,9 @@ export default function Page() {
           <div className="breadcrumb mono"><Link href="/">Home</Link> / <Link href="/chapters">Chapters</Link> / <Link href="/chapters/utd">UT Dallas</Link> / Leadership</div>
           <div className="utd-hero-top">
             <span className="mono utd-hero-tag">CHAPTER 01 · LEADERSHIP</span>
-            <span className="mono utd-hero-status">◌ 6 SEATS OPEN</span>
           </div>
           <h1 className="mission-h1" style={{ marginBottom: '20px' }}>Who runs this.</h1>
           <p className="doctrine-sub" style={{ fontStyle: 'italic', marginBottom: '40px' }}>&ldquo;mostly figuring it out live :)&rdquo;</p>
-
-          <div className="utd-hero-meta" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
-            <div className="utd-meta-cell">
-              <span className="mono utd-meta-label">TOTAL SEATS</span>
-              <span className="utd-meta-value">18</span>
-            </div>
-            <div className="utd-meta-cell">
-              <span className="mono utd-meta-label">FILLED</span>
-              <span className="utd-meta-value">12</span>
-            </div>
-            <div className="utd-meta-cell">
-              <span className="mono utd-meta-label">OPEN</span>
-              <span className="utd-meta-value">6 <span className="utd-meta-hint">apply below</span></span>
-            </div>
-            <div className="utd-meta-cell">
-              <span className="mono utd-meta-label">CHAPTER</span>
-              <span className="utd-meta-value">UTD</span>
-            </div>
-          </div>
 
           <div className="utd-hero-cta">
             <a className="hero-cta-primary" href={OFFICER_APP_URL} target="_blank" rel="noopener noreferrer">APPLY FOR OPEN SEATS →</a>
