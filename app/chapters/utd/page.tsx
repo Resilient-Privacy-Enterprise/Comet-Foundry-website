@@ -42,18 +42,43 @@ export default function Page() {
   return (
     <>
       {/* HERO */}
-      <section className="mission-hero">
+      <section className="mission-hero utd-hero">
         <div className="wrap">
           <div className="breadcrumb mono"><Link href="/">Home</Link> / <Link href="/chapters">Chapters</Link> / UT Dallas</div>
-          <span className="mission-eyebrow mono">COMET FOUNDRY / CHAPTER 01 / UT DALLAS</span>
-          <h1 className="mission-h1">UT Dallas.<br />Chapter 01.</h1>
-          <p className="doctrine-sub">&ldquo;Where it all started. Where the model was proven.&rdquo;</p>
-          <div className="mission-stamp mono">CHAPTER 01 · RICHARDSON TX · EST. 2026 · ● LAB ACTIVE</div>
-          <p className="mono" style={{ fontSize: '11px', color: 'var(--ink-soft)', marginTop: '12px' }}>257 APPLICANTS · 12 OFFICERS · 1 EVENT CONFIRMED · 4 LABS RUNNING</p>
-          <div className="mission-cta-row" style={{ marginTop: '32px' }}>
+          <div className="utd-hero-top">
+            <span className="mono utd-hero-tag">CHAPTER 01</span>
+            <span className="mono utd-hero-status">● LAB ACTIVE</span>
+          </div>
+          <h1 className="mission-h1" style={{ marginBottom: '20px' }}>UT Dallas.<br />Chapter 01.</h1>
+          <p className="doctrine-sub" style={{ fontStyle: 'italic', marginBottom: '40px' }}>&ldquo;Where it all started. Where the model was proven.&rdquo;</p>
+
+          <div className="utd-hero-meta">
+            <div className="utd-meta-cell">
+              <span className="mono utd-meta-label">LOCATION</span>
+              <span className="utd-meta-value">Richardson, TX</span>
+            </div>
+            <div className="utd-meta-cell">
+              <span className="mono utd-meta-label">ESTABLISHED</span>
+              <span className="utd-meta-value">2026</span>
+            </div>
+            <div className="utd-meta-cell">
+              <span className="mono utd-meta-label">APPLICANTS</span>
+              <span className="utd-meta-value">257</span>
+            </div>
+            <div className="utd-meta-cell">
+              <span className="mono utd-meta-label">OFFICERS</span>
+              <span className="utd-meta-value">12 <span className="utd-meta-hint">/ 18</span></span>
+            </div>
+            <div className="utd-meta-cell">
+              <span className="mono utd-meta-label">LABS RUNNING</span>
+              <span className="utd-meta-value">4 <span className="utd-meta-hint">/ 4</span></span>
+            </div>
+          </div>
+
+          <div className="utd-hero-cta">
             <a className="hero-cta-primary" href={APPLY_URL} target="_blank" rel="noopener noreferrer">APPLY TO UTD CHAPTER →</a>
-            <Link className="hero-cta-secondary" href="/chapters/utd/leadership">VIEW FULL TEAM →</Link>
-            <Link className="hero-cta-secondary" href="/events">VIEW EVENTS →</Link>
+            <Link className="hero-cta-secondary" href="/chapters/utd/leadership">MEET THE UTD TEAM →</Link>
+            <Link className="utd-hero-link mono" href="/events">Upcoming events →</Link>
           </div>
         </div>
       </section>

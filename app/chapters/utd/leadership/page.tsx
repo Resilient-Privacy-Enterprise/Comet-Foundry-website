@@ -87,16 +87,38 @@ export default function Page() {
   return (
     <>
       {/* HERO */}
-      <section className="mission-hero">
+      <section className="mission-hero utd-hero">
         <div className="wrap">
           <div className="breadcrumb mono"><Link href="/">Home</Link> / <Link href="/chapters">Chapters</Link> / <Link href="/chapters/utd">UT Dallas</Link> / Leadership</div>
-          <span className="mission-eyebrow mono">CHAPTER 01 / UT DALLAS / LEADERSHIP</span>
-          <h1 className="mission-h1">Who Runs This.</h1>
-          <p className="doctrine-sub" style={{ fontStyle: 'italic' }}>&ldquo;mostly figuring it out live :)&rdquo;</p>
-          <div className="mission-stamp mono" style={{ marginTop: '24px' }}>18 SEATS · 12 FILLED · 6 OPEN</div>
-          <div className="mission-cta-row" style={{ marginTop: '32px' }}>
+          <div className="utd-hero-top">
+            <span className="mono utd-hero-tag">CHAPTER 01 · LEADERSHIP</span>
+            <span className="mono utd-hero-status">◌ 6 SEATS OPEN</span>
+          </div>
+          <h1 className="mission-h1" style={{ marginBottom: '20px' }}>Who runs this.</h1>
+          <p className="doctrine-sub" style={{ fontStyle: 'italic', marginBottom: '40px' }}>&ldquo;mostly figuring it out live :)&rdquo;</p>
+
+          <div className="utd-hero-meta" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+            <div className="utd-meta-cell">
+              <span className="mono utd-meta-label">TOTAL SEATS</span>
+              <span className="utd-meta-value">18</span>
+            </div>
+            <div className="utd-meta-cell">
+              <span className="mono utd-meta-label">FILLED</span>
+              <span className="utd-meta-value">12</span>
+            </div>
+            <div className="utd-meta-cell">
+              <span className="mono utd-meta-label">OPEN</span>
+              <span className="utd-meta-value">6 <span className="utd-meta-hint">apply below</span></span>
+            </div>
+            <div className="utd-meta-cell">
+              <span className="mono utd-meta-label">CHAPTER</span>
+              <span className="utd-meta-value">UTD</span>
+            </div>
+          </div>
+
+          <div className="utd-hero-cta">
             <a className="hero-cta-primary" href={OFFICER_APP_URL} target="_blank" rel="noopener noreferrer">APPLY FOR OPEN SEATS →</a>
-            <Link className="hero-cta-secondary" href="/chapters/utd">BACK TO UTD CHAPTER →</Link>
+            <Link className="utd-hero-link mono" href="/chapters/utd">← Back to UTD Chapter</Link>
           </div>
         </div>
       </section>
