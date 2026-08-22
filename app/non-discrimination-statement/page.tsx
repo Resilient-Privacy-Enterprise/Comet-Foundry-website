@@ -23,7 +23,7 @@ export default function NonDiscriminationStatementPage() {
         <div className="wrap">
           <div className="legal-body">
             <p>
-              Comet Foundry ("Comet Foundry," "we," "us," or "our") is committed to providing an environment for membership, participation, and leadership that is free from discrimination and harassment. This Non-Discrimination Statement ("Statement") describes that commitment and applies to all Comet Foundry activities, whether conducted as the founding chapter registered with the University of Texas at Dallas ("UT Dallas") Student Organization Center ("SOC") or as part of Comet Foundry's independent nonprofit initiative.
+              Comet Foundry (&quot;Comet Foundry,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to providing an environment for membership, participation, and leadership that is free from discrimination and harassment. This Non-Discrimination Statement (&quot;Statement&quot;) describes that commitment and applies to all Comet Foundry activities, whether conducted as the founding chapter registered with the University of Texas at Dallas (&quot;UT Dallas&quot;) Student Organization Center (&quot;SOC&quot;) or as part of Comet Foundry&apos;s independent nonprofit initiative.
             </p>
 
             <h2>1. Statement of Policy</h2>
@@ -39,10 +39,10 @@ export default function NonDiscriminationStatementPage() {
 
             <h2>2. Application</h2>
             <p>
-              This Statement applies equally to Comet Foundry's founding chapter, operating as a registered UT Dallas student organization, and to Comet Foundry's independent 501(c)(3) nonprofit initiative, as well as to any future campus chapters established through Comet Foundry's chapter application process. All chapters and affiliated structures of Comet Foundry are expected to uphold this Statement.
+              This Statement applies equally to Comet Foundry&apos;s founding chapter, operating as a registered UT Dallas student organization, and to Comet Foundry&apos;s independent 501(c)(3) nonprofit initiative, as well as to any future campus chapters established through Comet Foundry&apos;s chapter application process. All chapters and affiliated structures of Comet Foundry are expected to uphold this Statement.
             </p>
             <p>
-              This Statement extends to all individuals who interact with Comet Foundry in a covered capacity, including prospective and current members, officer applicants, event attendees, volunteers, and, where applicable, Comet Foundry's advisory Industry Partner.
+              This Statement extends to all individuals who interact with Comet Foundry in a covered capacity, including prospective and current members, officer applicants, event attendees, volunteers, and, where applicable, Comet Foundry&apos;s advisory Industry Partner.
             </p>
 
             <h2>3. Open Events and Selective Builder Admission</h2>
@@ -51,19 +51,19 @@ export default function NonDiscriminationStatementPage() {
             </p>
             <h3>Events</h3>
             <p>
-              Comet Foundry's general events, talks, and programming are open to all eligible students without restriction or an application requirement, consistent with Comet Foundry's non-discrimination commitment in Section 1.
+              Comet Foundry&apos;s general events, talks, and programming are open to all eligible students without restriction or an application requirement, consistent with Comet Foundry&apos;s non-discrimination commitment in Section 1.
             </p>
             <h3>Building at the Foundry and Related Benefits</h3>
             <p>
-              Participation as a builder within Comet Foundry's core program, along with associated resources, mentorship, and other benefits, requires submission of a Join Foundry application and successful completion of an interview. This process exists because Comet Foundry has limited physical space, mentorship capacity, and resources, and cannot support every interested individual at that level of engagement. Selection is based on factors such as demonstrated commitment, seriousness of intent, and fit for the program, reflecting Comet Foundry's belief that meaningful support for builders and innovators requires a genuine, sustained commitment from participants. Selection is not based on any protected characteristic identified in Section 1.
+              Participation as a builder within Comet Foundry&apos;s core program, along with associated resources, mentorship, and other benefits, requires submission of a Join Foundry application and successful completion of an interview. This process exists because Comet Foundry has limited physical space, mentorship capacity, and resources, and cannot support every interested individual at that level of engagement. Selection is based on factors such as demonstrated commitment, seriousness of intent, and fit for the program, reflecting Comet Foundry&apos;s belief that meaningful support for builders and innovators requires a genuine, sustained commitment from participants. Selection is not based on any protected characteristic identified in Section 1.
             </p>
 
             <h2>4. Interview-Based, Merit-Only Officer Selection</h2>
             <p>
-              Admission into officer and leadership positions within Comet Foundry, including all Executive Board and General Officer seats, is determined purely through an interview-based selection process, consistent with Comet Foundry's Constitution and Bylaws. Selection is based solely on the candidate's performance in that interview process, including factors such as qualifications, fit, communication, and demonstrated interest in Comet Foundry's mission.
+              Admission into officer and leadership positions within Comet Foundry, including all Executive Board and General Officer seats, is determined purely through an interview-based selection process, consistent with Comet Foundry&apos;s Constitution and Bylaws. Selection is based solely on the candidate&apos;s performance in that interview process, including factors such as qualifications, fit, communication, and demonstrated interest in Comet Foundry&apos;s mission.
             </p>
             <p>
-              No protected characteristic identified in Section 1, including but not limited to race, color, national origin, religion, sex, gender, gender identity or expression, sexual orientation, age, disability, or veteran status, is considered, weighed, or otherwise factored into any selection decision, whether for officer positions or for admission into the builder program described in Section 3. Comet Foundry's interview processes are designed and administered to evaluate candidates on merit and capacity alone, and any suggestion that a selection outcome reflects discrimination rather than the interview process itself is expressly disclaimed.
+              No protected characteristic identified in Section 1, including but not limited to race, color, national origin, religion, sex, gender, gender identity or expression, sexual orientation, age, disability, or veteran status, is considered, weighed, or otherwise factored into any selection decision, whether for officer positions or for admission into the builder program described in Section 3. Comet Foundry&apos;s interview processes are designed and administered to evaluate candidates on merit and capacity alone, and any suggestion that a selection outcome reflects discrimination rather than the interview process itself is expressly disclaimed.
             </p>
 
             <h2>5. Reporting Concerns</h2>
@@ -85,17 +85,17 @@ export default function NonDiscriminationStatementPage() {
 
             <h2>7. Relationship to Other Comet Foundry Policies</h2>
             <p>
-              This Statement works together with Comet Foundry's <Link href="/code-of-conduct">Code of Conduct</Link>, which sets broader expectations for respectful behavior across all Comet Foundry spaces, and with Comet Foundry's governing Constitution and Bylaws. In the event of any conflict specific to discrimination or eligibility, this Statement controls on that subject matter.
+              This Statement works together with Comet Foundry&apos;s <Link href="/code-of-conduct">Code of Conduct</Link>, which sets broader expectations for respectful behavior across all Comet Foundry spaces, and with Comet Foundry&apos;s governing Constitution and Bylaws. In the event of any conflict specific to discrimination or eligibility, this Statement controls on that subject matter.
             </p>
 
             <h2>8. No Guarantee of Particular Outcome</h2>
             <p>
-              This Statement reflects Comet Foundry's policy and good-faith commitment. It does not create a private legal cause of action against Comet Foundry, its officers, directors, members, or volunteers, and does not guarantee a particular investigative process or outcome, beyond Comet Foundry's good-faith review of concerns raised in accordance with Section 4.
+              This Statement reflects Comet Foundry&apos;s policy and good-faith commitment. It does not create a private legal cause of action against Comet Foundry, its officers, directors, members, or volunteers, and does not guarantee a particular investigative process or outcome, beyond Comet Foundry&apos;s good-faith review of concerns raised in accordance with Section 4.
             </p>
 
             <h2>9. Changes to This Statement</h2>
             <p>
-              Comet Foundry may update this Statement from time to time. Material changes will be reflected by an updated "Effective Date" above.
+              Comet Foundry may update this Statement from time to time. Material changes will be reflected by an updated &quot;Effective Date&quot; above.
             </p>
 
             <h2>10. Contact Us</h2>

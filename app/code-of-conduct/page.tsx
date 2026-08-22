@@ -23,7 +23,7 @@ export default function CodeOfConductPage() {
         <div className="wrap">
           <div className="legal-body">
             <p>
-              This Code of Conduct ("Code") applies to everyone who participates in Comet Foundry ("Comet Foundry," "we," "us," or "our") activities, including members, officers, applicants, event attendees, campus chapter participants, and anyone engaging with Comet Foundry's online spaces, forms, or communications (collectively, "Participants"). By participating in Comet Foundry, you agree to follow this Code.
+              This Code of Conduct (&quot;Code&quot;) applies to everyone who participates in Comet Foundry (&quot;Comet Foundry,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) activities, including members, officers, applicants, event attendees, campus chapter participants, and anyone engaging with Comet Foundry&apos;s online spaces, forms, or communications (collectively, &quot;Participants&quot;). By participating in Comet Foundry, you agree to follow this Code.
             </p>
 
             <h2>1. Purpose</h2>
@@ -66,7 +66,7 @@ export default function CodeOfConductPage() {
               <li>Deliberate intimidation, stalking, or following, whether online or in person.</li>
               <li>Sustained disruption of meetings, events, talks, or online discussions.</li>
               <li>Sharing or displaying sexually explicit, violent, or otherwise inappropriate material in Comet Foundry spaces.</li>
-              <li>Publishing or threatening to publish another Participant's private information without consent.</li>
+              <li>Publishing or threatening to publish another Participant&apos;s private information without consent.</li>
               <li>Encouraging or advocating for any of the above behavior.</li>
               <li>Retaliation against a Participant for reporting a concern in good faith under this Code.</li>
             </ul>
@@ -97,7 +97,7 @@ export default function CodeOfConductPage() {
               <li>A formal warning documented with the individual involved.</li>
               <li>Temporary or permanent removal from a specific event, program, or Comet Foundry space.</li>
               <li>Removal from an officer or leadership position.</li>
-              <li>Termination of the individual's involvement with Comet Foundry.</li>
+              <li>Termination of the individual&apos;s involvement with Comet Foundry.</li>
               <li>Referral to UT Dallas, the Student Organization Center, or law enforcement, where appropriate and where conduct may violate university policy or applicable law.</li>
             </ul>
             <p>
@@ -106,17 +106,17 @@ export default function CodeOfConductPage() {
 
             <h2>8. Relationship to UT Dallas and SOC Policies</h2>
             <p>
-              As the founding chapter of Comet Foundry operates as a registered UT Dallas student organization, Participants are also subject to applicable UT Dallas and Student Organization Center codes of conduct, policies, and procedures. Where this Code and university policy address the same conduct, the more protective or more specific standard will generally govern, and nothing in this Code limits UT Dallas's or the Student Organization Center's own authority over its registered organizations.
+              As the founding chapter of Comet Foundry operates as a registered UT Dallas student organization, Participants are also subject to applicable UT Dallas and Student Organization Center codes of conduct, policies, and procedures. Where this Code and university policy address the same conduct, the more protective or more specific standard will generally govern, and nothing in this Code limits UT Dallas&apos;s or the Student Organization Center&apos;s own authority over its registered organizations.
             </p>
 
             <h2>9. No Guarantee of Outcome</h2>
             <p>
-              This Code reflects Comet Foundry's expectations and good-faith process for addressing concerns. It does not create a contractual right to any particular outcome, investigation procedure, or disciplinary result, and Comet Foundry retains discretion in how it applies and enforces this Code consistent with its governing documents.
+              This Code reflects Comet Foundry&apos;s expectations and good-faith process for addressing concerns. It does not create a contractual right to any particular outcome, investigation procedure, or disciplinary result, and Comet Foundry retains discretion in how it applies and enforces this Code consistent with its governing documents.
             </p>
 
             <h2>10. Changes to This Code</h2>
             <p>
-              Comet Foundry may update this Code from time to time to better serve its community. Material changes will be reflected by an updated "Effective Date" above. Continued participation in Comet Foundry activities following such changes constitutes acceptance of the revised Code.
+              Comet Foundry may update this Code from time to time to better serve its community. Material changes will be reflected by an updated &quot;Effective Date&quot; above. Continued participation in Comet Foundry activities following such changes constitutes acceptance of the revised Code.
             </p>
 
             <h2>11. Contact Us</h2>

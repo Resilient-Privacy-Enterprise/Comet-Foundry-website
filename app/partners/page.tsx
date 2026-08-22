@@ -90,7 +90,7 @@ export default function PartnersPage() {
               <h2 style={{ marginTop: 0, marginBottom: '1.5rem' }}>Become a Partner</h2>
 
               <p style={{ fontSize: '1.05em', lineHeight: 1.8, marginBottom: '2rem', maxWidth: '700px' }}>
-                We're looking for organizations that share our passion for supporting builders and fostering innovation.
+                We&apos;re looking for organizations that share our passion for supporting builders and fostering innovation.
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '3rem' }}>
@@ -119,7 +119,7 @@ export default function PartnersPage() {
                 <p style={{ fontSize: '0.85em', fontWeight: 500, textTransform: 'uppercase', color: 'var(--flask)', margin: '0 0 1rem 0' }}>Get in Touch</p>
                 <h3 style={{ margin: '0 0 1.5rem 0', fontSize: '1.2em', fontWeight: 600, color: 'white' }}>Interested in Partnering?</h3>
                 <p style={{ fontSize: '0.95em', lineHeight: 1.7, color: 'rgba(255,255,255,0.8)', marginBottom: '1.5rem', margin: '0 0 1.5rem 0' }}>
-                  Let's explore how we can work together.
+                  Let&apos;s explore how we can work together.
                 </p>
                 <a href="mailto:partners@cometfoundry.com" style={{ color: 'var(--flask)', fontWeight: 500, textDecoration: 'none' }}>
                   partners@cometfoundry.com

@@ -8,6 +8,8 @@ export default function JoinForm() {
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
+  // Timestamp captured at first render so the server can reject bot-fast submissions.
+  // eslint-disable-next-line react-hooks/purity
   const renderTimeRef = useRef<number>(Date.now());
 
   async function handleSubmit(e: React.FormEvent) {

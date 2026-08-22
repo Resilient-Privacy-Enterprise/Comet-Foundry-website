@@ -23,7 +23,7 @@ export default function AccessibilityStatementPage() {
         <div className="wrap">
           <div className="legal-body">
             <p>
-              Comet Foundry ("Comet Foundry," "we," "us," or "our") is committed to making cometfoundry.com and related digital properties (the "Site") accessible to the widest possible audience, including students, prospective members, and visitors with disabilities. This Accessibility Statement describes our commitment, our current approach, and how to reach us with feedback or difficulties.
+              Comet Foundry (&quot;Comet Foundry,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to making cometfoundry.com and related digital properties (the &quot;Site&quot;) accessible to the widest possible audience, including students, prospective members, and visitors with disabilities. This Accessibility Statement describes our commitment, our current approach, and how to reach us with feedback or difficulties.
             </p>
 
             <h2>1. Our Commitment</h2>
@@ -31,7 +31,7 @@ export default function AccessibilityStatementPage() {
               Comet Foundry strives to design and maintain the Site in a manner consistent with the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA, published by the World Wide Web Consortium (W3C). These guidelines explain how to make web content more accessible to people with a wide range of disabilities, including visual, auditory, physical, speech, cognitive, language, learning, and neurological disabilities.
             </p>
             <p>
-              As a student-led organization, we recognize that accessibility is an ongoing effort rather than a one-time achievement, and we work to improve the Site's accessibility on a continuing basis as it evolves.
+              As a student-led organization, we recognize that accessibility is an ongoing effort rather than a one-time achievement, and we work to improve the Site&apos;s accessibility on a continuing basis as it evolves.
             </p>
 
             <h2>2. Measures We Take</h2>
@@ -43,7 +43,7 @@ export default function AccessibilityStatementPage() {
               <li>Providing text alternatives for meaningful non-text content, such as logos and images, where practicable.</li>
               <li>Maintaining sufficient color contrast between text and background elements.</li>
               <li>Ensuring interactive elements, including links, buttons, and forms, are operable using a keyboard.</li>
-              <li>Using descriptive link text rather than generic phrases such as "click here."</li>
+              <li>Using descriptive link text rather than generic phrases such as &quot;click here.&quot;</li>
               <li>Reviewing new pages and features for accessibility considerations as they are built.</li>
             </ul>
 
@@ -52,7 +52,7 @@ export default function AccessibilityStatementPage() {
               Despite our efforts, some areas of the Site may not yet be fully accessible. Known limitations may include:
             </p>
             <ul>
-              <li><strong>Third-party embedded content,</strong> such as Microsoft Forms, GoFundMe, and Stripe checkout flows, which are hosted and controlled by those third parties and subject to their own accessibility practices, not Comet Foundry's.</li>
+              <li><strong>Third-party embedded content,</strong> such as Microsoft Forms, GoFundMe, and Stripe checkout flows, which are hosted and controlled by those third parties and subject to their own accessibility practices, not Comet Foundry&apos;s.</li>
               <li><strong>Older or archived content</strong> that has not yet been reviewed against current accessibility standards.</li>
               <li><strong>Custom visual styling elements,</strong> such as decorative headers, which we work to ensure do not interfere with the readability of underlying content.</li>
             </ul>
@@ -75,17 +75,17 @@ export default function AccessibilityStatementPage() {
               <li><strong>Website:</strong> <a href="https://www.cometfoundry.com">cometfoundry.com</a></li>
             </ul>
             <p>
-              Please include the web page and a description of the issue you encountered where possible, so we can address it as quickly as we're able to. We aim to respond to accessibility feedback promptly and will make reasonable efforts to provide the information or functionality you need through an alternative means while any underlying issue is resolved.
+              Please include the web page and a description of the issue you encountered where possible, so we can address it as quickly as we&apos;re able to. We aim to respond to accessibility feedback promptly and will make reasonable efforts to provide the information or functionality you need through an alternative means while any underlying issue is resolved.
             </p>
 
             <h2>6. No Warranty of Full Compliance</h2>
             <p>
-              While Comet Foundry is committed to the goals described in this Statement, we cannot guarantee that the Site will be fully accessible or fully compliant with WCAG 2.1 Level AA or any other standard at all times, particularly given the Site's reliance on third-party platforms outside our control. This Statement reflects our ongoing commitment and current practices, not a certification of compliance.
+              While Comet Foundry is committed to the goals described in this Statement, we cannot guarantee that the Site will be fully accessible or fully compliant with WCAG 2.1 Level AA or any other standard at all times, particularly given the Site&apos;s reliance on third-party platforms outside our control. This Statement reflects our ongoing commitment and current practices, not a certification of compliance.
             </p>
 
             <h2>7. Changes to This Statement</h2>
             <p>
-              Comet Foundry may update this Statement from time to time as the Site evolves and as our accessibility practices improve. Material changes will be reflected by an updated "Effective Date" above.
+              Comet Foundry may update this Statement from time to time as the Site evolves and as our accessibility practices improve. Material changes will be reflected by an updated &quot;Effective Date&quot; above.
             </p>
 
             <div className="legal-contact">

@@ -23,12 +23,12 @@ export default function CookiePolicyPage() {
         <div className="wrap">
           <div className="legal-body">
             <p>
-              This Cookie and Tracking Technologies Policy ("Policy") describes how Comet Foundry ("Comet Foundry," "we," "us," or "our") uses cookies and similar tracking technologies in connection with cometfoundry.com and related digital properties (the "Site"). This Policy forms part of, and should be read together with, our <Link href="/privacy-policy">Privacy Policy</Link>.
+              This Cookie and Tracking Technologies Policy (&quot;Policy&quot;) describes how Comet Foundry (&quot;Comet Foundry,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) uses cookies and similar tracking technologies in connection with cometfoundry.com and related digital properties (the &quot;Site&quot;). This Policy forms part of, and should be read together with, our <Link href="/privacy-policy">Privacy Policy</Link>.
             </p>
 
             <h2>1. Overview</h2>
             <p>
-              Comet Foundry's own analytics on the Site do not rely on cookies. We use Vercel Web Analytics, a cookieless measurement tool, to understand aggregate traffic on the Site. Certain third-party services embedded within the Site, including Microsoft Forms and GoFundMe, operate under their own tracking practices and may set cookies independently of Comet Foundry. Sections 2 and 3 of this Policy address each in turn.
+              Comet Foundry&apos;s own analytics on the Site do not rely on cookies. We use Vercel Web Analytics, a cookieless measurement tool, to understand aggregate traffic on the Site. Certain third-party services embedded within the Site, including Microsoft Forms and GoFundMe, operate under their own tracking practices and may set cookies independently of Comet Foundry. Sections 2 and 3 of this Policy address each in turn.
             </p>
 
             <h2>2. Site Analytics: Vercel Web Analytics</h2>
@@ -52,15 +52,15 @@ export default function CookiePolicyPage() {
 
             <h3>3.1 Microsoft Forms</h3>
             <p>
-              Officer applications, the builder interest form, and campus chapter applications are built using Microsoft Forms and embedded directly within Site pages. Because these forms are rendered within our pages rather than accessed through an external link, Microsoft may set cookies on a visitor's device upon page load, in accordance with Microsoft's own policies. Further detail is available in the <a href="https://privacy.microsoft.com" target="_blank" rel="noopener noreferrer">Microsoft Privacy Statement</a>.
+              Officer applications, the builder interest form, and campus chapter applications are built using Microsoft Forms and embedded directly within Site pages. Because these forms are rendered within our pages rather than accessed through an external link, Microsoft may set cookies on a visitor&apos;s device upon page load, in accordance with Microsoft&apos;s own policies. Further detail is available in the <a href="https://privacy.microsoft.com" target="_blank" rel="noopener noreferrer">Microsoft Privacy Statement</a>.
             </p>
 
             <h3>3.2 GoFundMe</h3>
             <p>
-              Comet Foundry's donation page is hosted on GoFundMe. Visitors who access or contribute through GoFundMe may have cookies set by GoFundMe and its payment processors for purposes including transaction processing, fraud prevention, and platform analytics, in accordance with GoFundMe's Privacy Policy and Cookie Policy.
+              Comet Foundry&apos;s donation page is hosted on GoFundMe. Visitors who access or contribute through GoFundMe may have cookies set by GoFundMe and its payment processors for purposes including transaction processing, fraud prevention, and platform analytics, in accordance with GoFundMe&apos;s Privacy Policy and Cookie Policy.
             </p>
             <p>
-              Comet Foundry does not receive, control, or have access to cookies set by these third parties. Any data collected through these embedded services is governed exclusively by the applicable third party's own privacy and cookie policies.
+              Comet Foundry does not receive, control, or have access to cookies set by these third parties. Any data collected through these embedded services is governed exclusively by the applicable third party&apos;s own privacy and cookie policies.
             </p>
 
             <h2>4. Summary Table</h2>
@@ -101,14 +101,14 @@ export default function CookiePolicyPage() {
 
             <h2>5. Managing Cookies</h2>
             <ul>
-              <li><strong>Because Comet Foundry's own analytics are cookieless,</strong> there is no Comet Foundry-set cookie for visitors to manage or decline.</li>
-              <li><strong>To limit cookies associated with Microsoft Forms or GoFundMe,</strong> visitors may adjust their browser's cookie and privacy settings or consult those providers' respective cookie-management tools.</li>
+              <li><strong>Because Comet Foundry&apos;s own analytics are cookieless,</strong> there is no Comet Foundry-set cookie for visitors to manage or decline.</li>
+              <li><strong>To limit cookies associated with Microsoft Forms or GoFundMe,</strong> visitors may adjust their browser&apos;s cookie and privacy settings or consult those providers&apos; respective cookie-management tools.</li>
               <li><strong>Most browsers allow cookies to be blocked or deleted</strong> through their settings menu. Visitors should be aware that restricting cookies on third-party platforms may impair the ability to submit forms or complete donations.</li>
             </ul>
 
             <h2>6. Changes to This Policy</h2>
             <p>
-              This Policy may be updated periodically to reflect changes in the tools Comet Foundry uses, including the potential future adoption of Google Analytics or another cookie-based service. Material changes will be reflected by an updated "Effective Date" above. Continued use of the Site following such changes constitutes acceptance of the revised Policy.
+              This Policy may be updated periodically to reflect changes in the tools Comet Foundry uses, including the potential future adoption of Google Analytics or another cookie-based service. Material changes will be reflected by an updated &quot;Effective Date&quot; above. Continued use of the Site following such changes constitutes acceptance of the revised Policy.
             </p>
 
             <h2>7. Contact Us</h2>

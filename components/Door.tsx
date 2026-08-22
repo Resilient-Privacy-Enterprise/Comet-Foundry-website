@@ -19,7 +19,9 @@ export default function Door() {
     const main = document.getElementById('main');
 
     if (alreadyOpen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setInstant(true);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setStatus('open');
       main?.classList.add('ready');
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });

@@ -11,7 +11,7 @@ export default function ResourcesPage() {
       <div className="page-hero">
         <div className="wrap">
           <div className="hero-breadcrumb">
-            <a href="/">Home</a>
+            <Link href="/">Home</Link>
             <span>/</span>
             <span>Resources</span>
           </div>
@@ -61,7 +61,7 @@ export default function ResourcesPage() {
               <h2 className="coming-soon-title">Coming Soon!</h2>
 
               <p className="coming-soon-message">
-                We're building a treasure trove of free resources to save you money. Think GitHub repos, free courses, open-source tools, and premium alternatives that won't break your student budget.
+                We&apos;re building a treasure trove of free resources to save you money. Think GitHub repos, free courses, open-source tools, and premium alternatives that won&apos;t break your student budget.
               </p>
 
               <div className="loading-dots">

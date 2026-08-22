@@ -73,10 +73,9 @@ header.nav{
 header.nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px; gap:18px; }
 .brand-section{ flex-shrink:0; }
 .brand-mark{ font-weight:700; font-size:18px; letter-spacing:-.01em; text-decoration:none; color:var(--ink); white-space:nowrap; display:flex; align-items:center; gap:10px; }
-.brand-text{ display:flex; flex-direction:column; }
+.brand-text{ display:flex; flex-direction:column; justify-content:center; text-align:center; }
 .brand-name{ font-weight:700; font-size:18px; letter-spacing:-.01em; line-height:1; }
 .brand-stamp{ font-size:10px; color:var(--ink-soft); letter-spacing:.08em; margin-top:2px; }
-.brand-text{ display:flex; flex-direction:column; justify-content:center; text-align:center; }
 .nav-logo{ height:72px; width:auto; display:block; flex-shrink:0; }
 .nav-links{ display:flex; gap:22px; font-family:'IBM Plex Mono',monospace; font-size:13px; flex-wrap:wrap; align-items:center; }
 .nav-links a{ color:var(--ink-soft); text-decoration:none; border-bottom:1px solid transparent; padding-bottom:2px; }
@@ -1652,21 +1651,7 @@ footer .mono{ font-size:12px; color:var(--ink-soft); letter-spacing:.04em; }
 .ch-lead-name{ font-size:15px; font-weight:700; }
 .ch-lead-open{ font-size:11px; letter-spacing:.06em; color:var(--hazard); }
 
-.ch-stats-grid{
-  display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;
-}
-.ch-stat-card{
-  padding:32px 24px; border:1px solid var(--line); border-radius:6px;
-  text-align:center; display:flex; flex-direction:column; align-items:center; gap:4px;
-}
-.ch-stat-num{
-  font-size:clamp(36px, 5vw, 56px); font-weight:800; letter-spacing:-.03em;
-  line-height:1;
-}
-.ch-stat-label{ font-size:11px; letter-spacing:.08em; color:var(--ink-soft); }
-.ch-stat-sub{
-  font-size:13px; color:var(--ink-soft); font-style:italic; margin-top:4px;
-}
+/* .ch-stats-grid + .ch-stat-* declared later in the file; kept the winning block only. */
 
 @media(max-width:768px){
   .ch-labs-grid{ grid-template-columns:1fr 1fr; }

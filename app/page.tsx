@@ -57,7 +57,7 @@ export default function Home() {
           <p className="hero-sub">Building the largest founder movement on college campuses.</p>
           <div className="hero-cta-row">
             <a className="hero-cta-primary" href={APPLY_URL} target="_blank" rel="noopener noreferrer">APPLY →</a>
-            <a className="hero-cta-secondary" href="/chapters/start">Bring it to your campus →</a>
+            <Link className="hero-cta-secondary" href="/chapters/start">Bring it to your campus →</Link>
           </div>
           <div className="hero-tags">
             <span className="tag">NO PERFECT IDEAS. JUST INTERESTING ONES.</span>

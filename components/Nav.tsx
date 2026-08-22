@@ -28,7 +28,9 @@ const DONATE_URL = '/donate';
 export default function Nav() {
   const [open, setOpen] = useState(false);
 
+  // Portal target is only available after hydration; gate createPortal on it.
   const [mounted, setMounted] = useState(false);
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
@@ -262,7 +264,7 @@ export default function Nav() {
                   <div className="mega-right">
                     <div className="live-preview-card">
                       <div className="card-label mono">BUILDING NOW · UTD</div>
-                      <p className="card-body">Nothing shipped yet. That's the point. :)</p>
+                      <p className="card-body">Nothing shipped yet. That&apos;s the point. :)</p>
                     </div>
                     <Link href="/demo-day" className="mega-link">
                       Demo Day
@@ -279,7 +281,7 @@ export default function Nav() {
             <span className="nav-dropdown-label">Chronicle</span>
             {activePanel === 'chronicle' && (
               <div className="nav-mega-panel" onMouseEnter={() => { if (closeTimer.current) { clearTimeout(closeTimer.current); closeTimer.current = null; } }} onMouseLeave={scheduleClose}>
-                <div className="mega-tagline">What's happening. What we're thinking. What's next.</div>
+                <div className="mega-tagline">What&apos;s happening. What we&apos;re thinking. What&apos;s next.</div>
                 <div className="mega-grid">
                   <div className="mega-left">
                     <Link href="/events" className="mega-link">

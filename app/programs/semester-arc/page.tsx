@@ -135,15 +135,15 @@ export default function SemesterArcPage() {
 
             <h2 style={{ marginTop: '4rem', marginBottom: '1.5rem' }}>What to Expect</h2>
 
-            <p><strong>Week 1-2: Kickoff</strong><br />Everyone starts somewhere. We run an open house where you meet builders, learn what's possible, and form teams around ideas that excite you. No prerequisites. No experience needed. Just show up.</p>
+            <p><strong>Week 1-2: Kickoff</strong><br />Everyone starts somewhere. We run an open house where you meet builders, learn what&apos;s possible, and form teams around ideas that excite you. No prerequisites. No experience needed. Just show up.</p>
 
-            <p><strong>Week 3-14: Ongoing Experiments</strong><br />This is the meat of it. You build. We provide space, mentorship, resources. You'll hit blockers. You'll iterate. You'll ship. You'll get feedback. That cycle repeats. By week 14, you have something real.</p>
+            <p><strong>Week 3-14: Ongoing Experiments</strong><br />This is the meat of it. You build. We provide space, mentorship, resources. You&apos;ll hit blockers. You&apos;ll iterate. You&apos;ll ship. You&apos;ll get feedback. That cycle repeats. By week 14, you have something real.</p>
 
-            <p><strong>Week 15: Demo Day</strong><br />You show the work. In front of the community, advisors, investors, and peers. This isn't a pitch competition. It's a celebration of what people built. Some projects are polished. Some are rough. All are real.</p>
+            <p><strong>Week 15: Demo Day</strong><br />You show the work. In front of the community, advisors, investors, and peers. This isn&apos;t a pitch competition. It&apos;s a celebration of what people built. Some projects are polished. Some are rough. All are real.</p>
 
-            <h2 style={{ marginTop: '3rem', marginBottom: '1.5rem' }}>You Don't Need to Know</h2>
+            <h2 style={{ marginTop: '3rem', marginBottom: '1.5rem' }}>You Don&apos;t Need to Know</h2>
 
-            <p>You don't need experience. You don't need a perfect idea at Kickoff. You don't need to know how to code, design, or fundraise. You just need to show up and be willing to learn by building.</p>
+            <p>You don&apos;t need experience. You don&apos;t need a perfect idea at Kickoff. You don&apos;t need to know how to code, design, or fundraise. You just need to show up and be willing to learn by building.</p>
 
             <p>The semester arc is designed for learning through execution, not lecture.</p>
           </div>

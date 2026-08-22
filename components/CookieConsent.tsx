@@ -7,6 +7,7 @@ export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     setIsClient(true);
     // Show banner on every visit for all users
@@ -21,6 +22,7 @@ export default function CookieConsent() {
       return () => clearTimeout(timer);
     }
   }, []);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   function handleAccept() {
     // Dismiss banner for this session only - it will reappear on next visit or page reload

@@ -40,8 +40,8 @@ export default function Page() {
             </div>
             <h2 className="campus-title">THE<br />HACKER<br />CAMPUS</h2>
             <div className="campus-cta">
-              <span className="campus-cta-note hand">not in your campus yet?</span>
-              <Link className="campus-cta-btn" href="/chapters/start">start a node →</Link>
+              <span className="campus-cta-note hand">not on your campus yet?</span>
+              <Link className="campus-cta-btn" href="/chapters/start">Bring it to your campus →</Link>
             </div>
           </div>
         </div>
