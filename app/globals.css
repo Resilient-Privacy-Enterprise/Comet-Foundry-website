@@ -248,18 +248,21 @@ header.nav .wrap{ display:flex; align-items:center; justify-content:space-betwee
 .nav-toggle:hover{ border-color:var(--ink); }
 .nav-toggle:focus-visible{ outline:2px solid var(--hazard); outline-offset:2px; }
 .mobile-menu-backdrop{
-  position:fixed; inset:0; background:rgba(0,0,0,.45);
-  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  position:fixed; inset:0; background:rgba(0,0,0,.5);
   z-index:110; pointer-events:auto;
 }
 .mobile-menu{
-  display:none; flex-direction:column; position:fixed; top:0; left:0; right:0; bottom:0;
-  max-height:100vh; overflow-y:auto; -webkit-overflow-scrolling:touch;
-  z-index:120; background:var(--paper);
-  padding-top:76px;
+  display:none !important;
 }
-body:has(.mobile-menu.open){ overflow:hidden; }
-.mobile-menu.open{ display:flex; }
+.mobile-menu.open{
+  display:flex !important;
+  flex-direction:column;
+  position:fixed; inset:0; z-index:120;
+  background:var(--paper); overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  padding:80px 0 40px;
+}
+body.menu-open{ overflow:hidden; }
 .mobile-menu a{
   padding:18px 32px; font-family:'IBM Plex Mono',monospace; font-size:15px; letter-spacing:.04em;
   color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line);
