@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function JoinForm() {
   const [buttonText, setButtonText] = useState('SUBSCRIBE →');
@@ -8,9 +8,10 @@ export default function JoinForm() {
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
-  // Timestamp captured at first render so the server can reject bot-fast submissions.
-  // eslint-disable-next-line react-hooks/purity
-  const renderTimeRef = useRef<number>(Date.now());
+  // Timestamp captured client-side after mount so it reflects the visitor's
+  // clock (not the SSR server's) and can't false-positive the 2s anti-bot check.
+  const renderTimeRef = useRef<number>(0);
+  useEffect(() => { renderTimeRef.current = Date.now(); }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();

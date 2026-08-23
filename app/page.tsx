@@ -44,7 +44,6 @@ const flywheelCards = [
 const rosterPlaceholders = ['Builder 01', 'Builder 02', 'Builder 03', 'Builder 04'];
 
 const cardStyle = { border: '1px solid var(--line)', padding: '28px 24px' };
-const h2Home = { fontSize: 'clamp(28px, 4.4vw, 46px)', fontWeight: 800, letterSpacing: '-.02em', textTransform: 'uppercase' as const, margin: '0 0 16px', lineHeight: 1.05 };
 
 export default function Home() {
   return (

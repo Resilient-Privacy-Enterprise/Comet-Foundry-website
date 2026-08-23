@@ -38,7 +38,7 @@ const officers: Member[] = [
   { filled: false, role: 'Social Media Officer', abbr: 'SMO' },
   { filled: false, role: 'Social Media Officer', abbr: 'SMO' },
   { filled: false, role: 'Design Officer', abbr: 'DO' },
-  { filled: true, name: 'Thejas Pratheep', role: 'Outreach Officer', email: 'Thejas.Pratheep@utdallas.edu', linkedin: 'https://www.linkedin.com/in/thejas-pratheep/', photo: '/assets/team/Thejas Pratheep.png' },
+  { filled: true, name: 'Thejas Pratheep', role: 'Outreach Officer', email: 'Thejas.Pratheep@utdallas.edu', linkedin: 'https://www.linkedin.com/in/thejas-pratheep/', photo: '/assets/team/thejas-pratheep.png' },
 ];
 
 const advisors: Member[] = [

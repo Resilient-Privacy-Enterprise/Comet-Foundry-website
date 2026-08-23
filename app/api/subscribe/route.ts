@@ -83,9 +83,16 @@ export async function POST(req: NextRequest) {
   }
 
   // Timing check — anything under 2s is almost certainly a bot.
+  // Reject non-numeric, negative-elapsed (future _t), or excessively-future _t
+  // so an attacker can't bypass the gate by pretending to have rendered later.
   if (typeof _t === 'number' && Number.isFinite(_t)) {
-    const elapsed = Date.now() - _t;
-    if (elapsed > 0 && elapsed < MIN_SUBMIT_MS) {
+    const now = Date.now();
+    const elapsed = now - _t;
+    if (elapsed <= 0 || _t > now + 5000) {
+      logSecurityEvent('FAST_SUBMIT', { ip, elapsed, reason: 'future_t' });
+      return NextResponse.json({ ok: false, error: 'Invalid submission' }, { status: 400, headers });
+    }
+    if (elapsed < MIN_SUBMIT_MS) {
       logSecurityEvent('FAST_SUBMIT', { ip, elapsed });
       return NextResponse.json(OK_RESPONSE, { headers });
     }
@@ -158,8 +165,9 @@ export async function POST(req: NextRequest) {
     if (!resendRes.ok) {
       const errBody = await resendRes.text();
       console.error('Resend API error:', resendRes.status, errBody);
-      // Still return generic ok to avoid leaking upstream state.
-      return NextResponse.json(OK_RESPONSE, { headers });
+      // Surface upstream failure so the UI can show "try again" — silently
+      // returning 200 hides both bugs and abuse.
+      return NextResponse.json({ ok: false, error: 'Upstream unavailable' }, { status: 502, headers });
     }
 
     return NextResponse.json(OK_RESPONSE, { headers });

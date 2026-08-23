@@ -141,7 +141,7 @@ const OFFICERS: Seat[] = [
     filled: {
       1: {
         name: 'Thejas Pratheep',
-        photo: '/assets/team/Thejas Pratheep.png',
+        photo: '/assets/team/thejas-pratheep.png',
         email: 'Thejas.Pratheep@utdallas.edu',
         linkedin: 'https://www.linkedin.com/in/thejas-pratheep/',
       },

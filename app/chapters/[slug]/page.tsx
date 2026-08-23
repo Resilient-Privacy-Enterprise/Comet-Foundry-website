@@ -5,8 +5,6 @@ import { CHAPTERS, getChapterBySlug } from '@/lib/chapters';
 import { LABS } from '@/lib/labs';
 import { pageMetadata } from '@/lib/metadata';
 
-const APPLY_URL =
-  'https://forms.cloud.microsoft/pages/responsepage.aspx?id=HR0ojU2c90uxbgMtFd6fbIhHjy7i2rpHt7VcaeT3yedUMkQwTTU4TkpUNFczMVQzS0cwUUVaWEw0WC4u&route=shorturl&b2b=true';
 const EXPRESS_INTEREST_URL = 'https://forms.cloud.microsoft/r/FPR6PcbQaN';
 
 export function generateStaticParams() {

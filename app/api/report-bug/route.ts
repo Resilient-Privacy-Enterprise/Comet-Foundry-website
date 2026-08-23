@@ -80,8 +80,13 @@ export async function POST(req: NextRequest) {
   }
 
   if (typeof _t === 'number' && Number.isFinite(_t)) {
-    const elapsed = Date.now() - _t;
-    if (elapsed > 0 && elapsed < MIN_SUBMIT_MS) {
+    const now = Date.now();
+    const elapsed = now - _t;
+    if (elapsed <= 0 || _t > now + 5000) {
+      logSecurityEvent('FAST_SUBMIT', { ip, elapsed, reason: 'future_t', route: 'report-bug' });
+      return NextResponse.json({ ok: false, error: 'Invalid submission' }, { status: 400, headers });
+    }
+    if (elapsed < MIN_SUBMIT_MS) {
       logSecurityEvent('FAST_SUBMIT', { ip, elapsed, route: 'report-bug' });
       return NextResponse.json(OK_RESPONSE, { headers });
     }
@@ -133,7 +138,9 @@ export async function POST(req: NextRequest) {
     if (!resendRes.ok) {
       const errBody = await resendRes.text();
       console.error('Resend API error (report-bug):', resendRes.status, errBody);
-      return NextResponse.json(OK_RESPONSE, { headers });
+      // Surface upstream failure so the UI can show "try again" instead of
+      // pretending we captured the bug report.
+      return NextResponse.json({ ok: false, error: 'Upstream unavailable' }, { status: 502, headers });
     }
 
     return NextResponse.json(OK_RESPONSE, { headers });

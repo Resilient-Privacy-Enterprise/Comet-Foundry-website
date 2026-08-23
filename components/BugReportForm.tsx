@@ -1,14 +1,16 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function BugReportForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
-  // eslint-disable-next-line react-hooks/purity
-  const renderTimeRef = useRef<number>(Date.now());
+  // Client-side render time so SSR/client clock drift can't false-positive
+  // the anti-bot timing check.
+  const renderTimeRef = useRef<number>(0);
+  useEffect(() => { renderTimeRef.current = Date.now(); }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();

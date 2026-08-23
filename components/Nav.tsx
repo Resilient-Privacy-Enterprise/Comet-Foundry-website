@@ -4,7 +4,6 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { CHAPTERS } from '@/lib/chapters';
 
 const APPLY_URL =
@@ -24,8 +23,6 @@ const APPLY_LINKS: Array<{ label: string; sub: string; href: string; external: b
   { label: 'Post a Startup Role', sub: 'Hiring builders from CF.', href: POST_ROLE_URL, external: true },
 ];
 
-const DONATE_URL = '/donate';
-
 export default function Nav() {
   const [open, setOpen] = useState(false);
 
@@ -43,7 +40,6 @@ export default function Nav() {
   }, [open]);
   const [activePanel, setActivePanel] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const pathname = usePathname();
 
   const openPanel = useCallback((panel: string) => {
     if (closeTimer.current) { clearTimeout(closeTimer.current); closeTimer.current = null; }
@@ -53,10 +49,6 @@ export default function Nav() {
   const scheduleClose = useCallback(() => {
     closeTimer.current = setTimeout(() => setActivePanel(null), 80);
   }, []);
-
-  function isActive(nav: string) {
-    return pathname === `/${nav}` || (nav === 'home' && pathname === '/');
-  }
 
   return (
     <header className="nav">

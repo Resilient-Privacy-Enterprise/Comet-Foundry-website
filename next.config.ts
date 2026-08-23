@@ -38,6 +38,7 @@ const nextConfig: NextConfig = {
       { source: '/founder', destination: '/leadership/founder', permanent: true },
       { source: '/partners', destination: '/backers', permanent: true },
       { source: '/blog', destination: '/field-notes', permanent: true },
+      { source: '/blog/:path*', destination: '/field-notes', permanent: true },
     ];
   },
   async headers() {
