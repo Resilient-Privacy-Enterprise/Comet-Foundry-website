@@ -1,9 +1,17 @@
 import type { NextConfig } from "next";
 
-// Note: Content-Security-Policy is emitted from middleware.ts per-request
-// so it can carry a fresh nonce. Everything else is static and set here.
+const isDev = process.env.NODE_ENV !== "production";
+
+// Static CSP — Next.js prerenders most pages, so a per-request nonce
+// via middleware would mismatch the build-time nonce baked into HTML
+// (blocking every inline hydration script). Static policy keeps
+// 'unsafe-inline' and adds Vercel Analytics / Speed Insights hosts.
+const cspValue = isDev
+  ? "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' ws: https://vitals.vercel-insights.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+  : "default-src 'self'; script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://vitals.vercel-insights.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests";
 
 const securityHeaders = [
+  { key: "Content-Security-Policy", value: cspValue },
   { key: "X-Frame-Options", value: "DENY" },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
