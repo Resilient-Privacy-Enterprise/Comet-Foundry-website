@@ -75,7 +75,7 @@ export default function Footer() {
         <div className="footer-bottom">
           <span className="mono">© 2026 Comet Foundry. All rights reserved.</span>
           <span className="footer-easter">Built by humans — every em dash placed manually. :)</span>
-          <span className="mono fb-right">EST. 2026 / GLOBAL / CHAPTER 01 · UTD</span>
+          <span className="mono fb-right">EST. 2026 / GLOBAL</span>
         </div>
       </div>
     </footer>
