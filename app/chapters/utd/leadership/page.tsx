@@ -20,7 +20,7 @@ type Member = FilledMember | OpenSeat;
 const execBoard: Member[] = [
   { filled: true, name: 'Madhuvanthi Magge', role: 'President', email: 'Madhuvanthi.Magge@utdallas.edu', linkedin: 'https://www.linkedin.com/in/madhuvanthimagge/', photo: '/assets/team/madhuvanthi-magge.png' },
   { filled: true, name: 'Avni Rajpal', role: 'Vice President', email: 'Avni.Rajpal@utdallas.edu', linkedin: 'https://www.linkedin.com/in/avni-rajpal-51b404421/', photo: '/assets/team/avni-rajpal.png' },
-  { filled: false, role: 'Secretary', abbr: 'S' },
+  { filled: true, name: 'Sameeraa Kandalgaonkar', role: 'Secretary', email: 'Sameeraa.Kandalgaonkar@utdallas.edu', linkedin: 'https://www.linkedin.com/in/sameeraakan118/', photo: '/assets/team/sameeraa-kandalgaonkar.png' },
   { filled: true, name: 'Vishwaa Shah', role: 'Treasurer', email: 'vishwaa@utdallas.edu', linkedin: 'https://www.linkedin.com/in/vishwaa-shah/', photo: '/assets/team/vishwaa-shah.png' },
   { filled: true, name: 'Vishwa Thummar', role: 'Marketing Strategist', email: 'VishwaJaysukhbhai.Thummar@utdallas.edu', linkedin: 'https://www.linkedin.com/in/vishwa-thummar/', photo: '/assets/team/vishwa-thummar.jpg' },
 ];
@@ -115,7 +115,7 @@ export default function Page() {
               padding: '4px 10px',
               border: '1px solid var(--flask)',
               fontWeight: 700,
-            }}>WOMEN-LED · CHAPTER 01</span>
+            }}>GIRL POWER · BOARDROOM EDITION</span>
           </div>
           <p style={{ fontSize: '14px', color: 'var(--ink-soft)', marginBottom: '24px' }}>The five seats that set direction for the chapter — strategy, structure, and who we bring in next.</p>
           <div className="profile-grid exec">
