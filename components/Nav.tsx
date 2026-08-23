@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { CHAPTERS } from '@/lib/chapters';
 
 const APPLY_URL =
   'https://forms.cloud.microsoft/pages/responsepage.aspx?id=HR0ojU2c90uxbgMtFd6fbIhHjy7i2rpHt7VcaeT3yedUMkQwTTU4TkpUNFczMVQzS0cwUUVaWEw0WC4u&route=shorturl&b2b=true';
@@ -364,6 +365,11 @@ export default function Nav() {
           <Link href="/chapters" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ The Map</Link>
           <Link href="/chapters/standard" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Chapter Standard</Link>
           <Link href="/chapters/start" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Start a Chapter</Link>
+          {CHAPTERS.map((ch) => (
+            <Link key={ch.slug} href={`/chapters/${ch.slug}`} className="mobile-sub-link" onClick={() => setOpen(false)}>
+              ↳ CH {ch.num} · {ch.name} {ch.status === 'active' ? '●' : '◌'}
+            </Link>
+          ))}
         </details>
 
         <details className="mobile-group">

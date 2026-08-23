@@ -41,20 +41,19 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
   return (
     <>
       {/* HERO */}
-      <section className="mission-hero">
+      <section className="mission-hero utd-hero">
         <div className="wrap">
           <div className="breadcrumb mono"><Link href="/">Home</Link> / <Link href="/chapters">Chapters</Link> / {ch.name}</div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-            <span className="mission-eyebrow mono" style={{ marginBottom: 0 }}>COMET FOUNDRY / CHAPTER {ch.num} / {ch.name.toUpperCase()}</span>
-            <span className="ch-map-badge mono incoming" style={{ fontSize: '9px' }}>◌ INCOMING</span>
+          <div className="utd-hero-top">
+            <span className="mono utd-hero-tag">CHAPTER {ch.num}</span>
+            <span className="mono utd-hero-status">◌ INCOMING</span>
           </div>
-          <h1 className="mission-h1">{ch.name}.<br />Chapter {ch.num}.</h1>
-          <p className="doctrine-sub">&ldquo;{ch.tagline}&rdquo;</p>
-          <div className="mission-stamp mono">CHAPTER {ch.num} · {ch.city} {ch.state} · ◌ CHARTER PENDING</div>
-          <p className="mono" style={{ fontSize: '11px', color: 'var(--ink-soft)', marginTop: '12px' }}>0 BUILDERS SO FAR · 0 BUILDS SHIPPED · 4 LABS PLANNED</p>
-          <div className="mission-cta-row" style={{ marginTop: '32px' }}>
+          <h1 className="mission-h1" style={{ marginBottom: '20px' }}>{ch.name}.<br />Chapter {ch.num}.</h1>
+          <p className="doctrine-sub" style={{ fontStyle: 'italic', marginBottom: '40px' }}>&ldquo;{ch.tagline}&rdquo;</p>
+
+          <div className="utd-hero-cta">
             <a className="hero-cta-primary" href={EXPRESS_INTEREST_URL} target="_blank" rel="noopener noreferrer">NOTIFY ME WHEN WE OPEN →</a>
-            <Link className="hero-cta-secondary" href="/chapters/start">HELP START THIS CHAPTER →</Link>
+            <Link className="utd-hero-link mono" href="/chapters/start">Help start this chapter →</Link>
           </div>
         </div>
       </section>
