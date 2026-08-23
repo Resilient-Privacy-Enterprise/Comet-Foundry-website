@@ -17,9 +17,9 @@ const KICKOFF_RSVP_URL =
 
 const APPLY_LINKS: Array<{ label: string; sub: string; href: string; external: boolean }> = [
   { label: 'Apply as a Builder', sub: 'Join the next cohort at your chapter.', href: APPLY_URL, external: true },
-  { label: 'Apply for an Officer Seat', sub: '6 open leadership seats at UTD.', href: OFFICER_APP_URL, external: true },
+  { label: 'Apply for a UTD Officer Seat', sub: 'Lead the chapter at UT Dallas.', href: OFFICER_APP_URL, external: true },
   { label: 'Bring CF to Your Campus', sub: 'Start a chapter at your university.', href: EXPRESS_INTEREST_URL, external: true },
-  { label: 'RSVP: Kickoff Night', sub: 'Sep 01 · UT Dallas.', href: KICKOFF_RSVP_URL, external: true },
+  { label: 'RSVP: Kickoff Night', sub: 'UT Dallas.', href: KICKOFF_RSVP_URL, external: true },
   { label: 'Post a Startup Role', sub: 'Hiring builders from CF.', href: POST_ROLE_URL, external: true },
 ];
 
