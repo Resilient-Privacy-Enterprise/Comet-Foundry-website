@@ -66,6 +66,7 @@ export default function Footer() {
                 <li><Link href="/ip-trademark-policy">IP & Trademark</Link></li>
                 <li><Link href="/event-waiver">Event Waiver</Link></li>
                 <li><Link href="/builder-acceptance-rulebook">Builder Rulebook</Link></li>
+                <li><Link href="/vulnerability-disclosure-policy">Vulnerability Disclosure</Link></li>
                 <li><Link href="/terms-of-use">Terms of Use</Link></li>
               </ul>
             </div>

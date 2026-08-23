@@ -2453,3 +2453,41 @@ footer .mono{ font-size:12px; color:var(--ink-soft); letter-spacing:.04em; }
 .mobile-group .mobile-sub-link:last-child{
   padding-bottom:12px;
 }
+
+/* BACKERS LOGO GRID */
+.backers-grid{
+  display:grid; grid-template-columns:repeat(3, minmax(0, 320px));
+  gap:20px; margin-top:24px;
+}
+@media(max-width:900px){
+  .backers-grid{ grid-template-columns:repeat(2, 1fr); }
+}
+@media(max-width:560px){
+  .backers-grid{ grid-template-columns:1fr; }
+}
+
+/* SEED BACKER — horizontal identity row */
+.seed-backer-row{
+  display:flex; align-items:center; gap:20px;
+  padding:18px 22px; margin-top:20px;
+  background:var(--paper-raised); border:1px solid var(--line);
+  text-decoration:none; color:inherit; max-width:520px;
+  transition:border-color .2s ease;
+}
+.seed-backer-row:hover{ border-color:var(--flask); }
+.seed-backer-logo{
+  width:64px; height:64px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--paper); border:1px solid var(--line); overflow:hidden;
+}
+.seed-backer-logo img{ width:52px !important; height:52px !important; object-fit:contain; }
+.seed-backer-body{ display:flex; flex-direction:column; gap:2px; flex:1; min-width:0; }
+.seed-backer-name{ font-size:15px; font-weight:700; color:var(--ink); letter-spacing:-.01em; }
+.seed-backer-tag{ font-size:12px; color:var(--ink-soft); line-height:1.4; }
+.seed-backer-cta{ font-size:10px; letter-spacing:.12em; color:var(--flask); font-weight:700; flex-shrink:0; }
+
+@media(max-width:560px){
+  .seed-backer-row{ padding:14px 16px; gap:14px; }
+  .seed-backer-name{ font-size:14px; }
+  .seed-backer-tag{ font-size:11px; }
+}

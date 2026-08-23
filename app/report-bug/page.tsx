@@ -26,6 +26,10 @@ export default function ReportBugPage() {
         <div className="wrap">
           <BugReportForm />
           <p className="mono" style={{ fontSize: '12px', color: 'var(--ink-soft)', letterSpacing: '.06em', margin: '32px 0 0', maxWidth: '640px', lineHeight: 1.7 }}>You can also email about the issue on <a href="mailto:security@cometfoundry.com" style={{ color: 'var(--flask)' }}>security@cometfoundry.com</a>. We review all submissions and fix issues as fast as we can. Thank you for helping us build better.</p>
+          <div style={{ marginTop: '24px', padding: '18px 22px', borderLeft: '3px solid var(--flask)', background: 'var(--paper-raised)', maxWidth: '640px' }}>
+            <span className="mono" style={{ fontSize: '10px', letterSpacing: '.14em', color: 'var(--flask)', fontWeight: 700 }}>SECURITY RESEARCHERS</span>
+            <p style={{ fontSize: '14px', color: 'var(--ink)', lineHeight: 1.7, margin: '8px 0 0' }}>Reporting a security vulnerability? Please review our <Link href="/vulnerability-disclosure-policy" style={{ color: 'var(--flask)', textDecoration: 'none', fontWeight: 600 }}>Vulnerability Disclosure Policy</Link> for scope, authorized research conduct, and expected response times.</p>
+          </div>
           <div className="mission-cta-row" style={{ marginTop: '28px' }}>
             <Link className="hero-cta-secondary" href="/">BACK TO HOME →</Link>
             <Link className="hero-cta-secondary" href="/field-notes">VIEW FIELD NOTES →</Link>
