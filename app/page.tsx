@@ -334,7 +334,7 @@ export default function Home() {
           <div className="campus-stage">
             <div className="campus-map" aria-hidden="true">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img className="campus-map-svg" src="/assets/campus-map.svg" alt="Map of the continental United States with Comet Foundry's node in Texas" width={950} height={580} loading="lazy" />
+              <img className="campus-map-svg" src="/assets/campus-map.svg?v=2" alt="Map of the continental United States with Comet Foundry's node in Texas" width={950} height={580} loading="lazy" />
             </div>
             <h2 className="campus-title">THE<br />HACKER<br />CAMPUS</h2>
             <div className="campus-cta">

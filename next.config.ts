@@ -46,7 +46,10 @@ const nextConfig: NextConfig = {
       { source: "/(.*)", headers: securityHeaders },
       {
         source: "/assets/:path*",
-        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+        // 1-day cache with revalidation so asset edits propagate within a
+        // day. If the file is truly fingerprinted (never changes at a URL)
+        // we can bump this back to immutable per-path.
+        headers: [{ key: "Cache-Control", value: "public, max-age=86400, must-revalidate" }],
       },
       {
         // Prevent preview/branch deployments from being indexed.
