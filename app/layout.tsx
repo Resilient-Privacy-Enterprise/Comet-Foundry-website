@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   ...pageMetadata({
     path: '/',
     ogTitle: 'Comet Foundry — Your Hacker House',
-    description: 'A hacker house at UT Dallas. No perfect ideas. Just interesting ones.',
+    description: 'A hacker house for builders. No perfect ideas. Just interesting ones.',
   }),
   icons: {
     icon: [

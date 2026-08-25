@@ -11,8 +11,8 @@ const APPLY_URL =
 export const metadata: Metadata = {
   ...pageMetadata({
     path: '/',
-    ogTitle: 'Comet Foundry — The Hackerhouse at UT Dallas',
-    description: 'A hackerhouse at UT Dallas for building things nobody assigned you. No perfect ideas. Just interesting ones. Join our innovation community.',
+    ogTitle: 'Comet Foundry — The Hackerhouse',
+    description: 'A hackerhouse for building things nobody assigned you. Born at UTD, built for every campus. No perfect ideas. Just interesting ones.',
     keywords: [
       'hackerhouse at UT Dallas',
       'student startup community',
