@@ -37,7 +37,7 @@ const officers: Member[] = [
   { filled: true, name: 'Elizabeth Clawson', role: 'Community Engagement Officer', email: 'Elizabeth.Clawson@utdallas.edu', linkedin: 'https://www.linkedin.com/in/ellie-clawson-a548b8429', photo: '/assets/team/Elizabeth-Clawson.png' },
   { filled: false, role: 'Social Media Officer', abbr: 'SMO' },
   { filled: false, role: 'Social Media Officer', abbr: 'SMO' },
-  { filled: false, role: 'Design Officer', abbr: 'DO' },
+  { filled: true, name: 'Meghana Kakani', role: 'Design Officer', email: 'MeghanaSree.Kakani@utdallas.edu', linkedin: 'https://www.linkedin.com/in/meghana-kakani-aa49a3349/', photo: '/assets/team/meghana-kakani.png' },
   { filled: true, name: 'Thejas Pratheep', role: 'Outreach Officer', email: 'Thejas.Pratheep@utdallas.edu', linkedin: 'https://www.linkedin.com/in/thejas-pratheep/', photo: '/assets/team/thejas-pratheep.png' },
 ];
 

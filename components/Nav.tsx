@@ -172,6 +172,10 @@ export default function Nav() {
                       Chapter Standard
                       <span className="sub-label">What every chapter must run to carry the name.</span>
                     </Link>
+                    <Link href="/membership-policy" className="mega-link">
+                      Membership & Fees
+                      <span className="sub-label">Tiers, admissions, and what your fee covers.</span>
+                    </Link>
                     <Link href="/for-universities" className="mega-link">
                       For Universities
                       <span className="sub-label">Full partner guide for faculty and admin.</span>
@@ -356,6 +360,7 @@ export default function Nav() {
           <summary>Chapters</summary>
           <Link href="/chapters" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ The Map</Link>
           <Link href="/chapters/standard" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Chapter Standard</Link>
+          <Link href="/membership-policy" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Membership & Fees</Link>
           <Link href="/chapters/start" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Start a Chapter</Link>
           {CHAPTERS.map((ch) => (
             <Link key={ch.slug} href={`/chapters/${ch.slug}`} className="mobile-sub-link" onClick={() => setOpen(false)}>
