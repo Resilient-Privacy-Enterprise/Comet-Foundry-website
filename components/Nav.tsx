@@ -285,10 +285,6 @@ export default function Nav() {
                       Events
                       <span className="sub-label">Global calendar. Filter by chapter.</span>
                     </Link>
-                    <Link href="/field-notes" className="mega-link">
-                      Field Notes
-                      <span className="sub-label">Long reads, founder stories, short takes.</span>
-                    </Link>
                     <Link href="/report-bug" className="mega-link">
                       Report a Bug
                       <span className="sub-label">Found something broken? Tell us.</span>
@@ -389,7 +385,6 @@ export default function Nav() {
         <details className="mobile-group">
           <summary>Chronicle</summary>
           <Link href="/events" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Events</Link>
-          <Link href="/field-notes" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Field Notes</Link>
           <Link href="/press" className="mobile-sub-link" onClick={() => setOpen(false)}>↳ Press & Brand</Link>
         </details>
 

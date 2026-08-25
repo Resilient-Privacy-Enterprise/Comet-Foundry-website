@@ -32,7 +32,7 @@ export default function ReportBugPage() {
           </div>
           <div className="mission-cta-row" style={{ marginTop: '28px' }}>
             <Link className="hero-cta-secondary" href="/">BACK TO HOME →</Link>
-            <Link className="hero-cta-secondary" href="/field-notes">VIEW FIELD NOTES →</Link>
+            <Link className="hero-cta-secondary" href="/events">VIEW EVENTS →</Link>
           </div>
         </div>
       </section>

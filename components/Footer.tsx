@@ -26,7 +26,6 @@ export default function Footer() {
                 <li><Link href="/backers">The Backers</Link></li>
                 <li><Link href="/donate">Fuel It</Link></li>
                 <li><Link href="/events">Events</Link></li>
-                <li><Link href="/field-notes">Field Notes</Link></li>
                 <li><Link href="/stash">The Stash</Link></li>
                 <li><Link href="/careers">Careers</Link></li>
               </ul>
