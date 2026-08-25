@@ -33,7 +33,6 @@ const nextConfig: NextConfig = {
     return [
       { source: '/about', destination: '/mission/why', permanent: true },
       { source: '/projects', destination: '/builds', permanent: true },
-      { source: '/resources', destination: '/stash', permanent: true },
       { source: '/team', destination: '/chapters/utd/leadership', permanent: true },
       { source: '/founder', destination: '/leadership/founder', permanent: true },
       { source: '/partners', destination: '/backers', permanent: true },
