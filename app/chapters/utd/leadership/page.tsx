@@ -22,7 +22,7 @@ const execBoard: Member[] = [
   { filled: true, name: 'Avni Rajpal', role: 'Vice President', email: 'Avni.Rajpal@utdallas.edu', linkedin: 'https://www.linkedin.com/in/avni-rajpal-51b404421/', photo: '/assets/team/avni-rajpal.png' },
   { filled: true, name: 'Sameeraa Kandalgaonkar', role: 'Secretary', email: 'Sameeraa.Kandalgaonkar@utdallas.edu', linkedin: 'https://www.linkedin.com/in/sameeraakan118/', photo: '/assets/team/sameeraa-kandalgaonkar.png' },
   { filled: true, name: 'Vishwaa Shah', role: 'Treasurer', email: 'vishwaa@utdallas.edu', linkedin: 'https://www.linkedin.com/in/vishwaa-shah/', photo: '/assets/team/vishwaa-shah.png' },
-  { filled: true, name: 'Vishwa Thummar', role: 'Marketing Strategist', email: 'VishwaJaysukhbhai.Thummar@utdallas.edu', linkedin: 'https://www.linkedin.com/in/vishwa-thummar/', photo: '/assets/team/vishwa-thummar.jpg' },
+  { filled: false, role: 'Marketing Strategist', abbr: 'MS' },
 ];
 
 const officers: Member[] = [
@@ -31,9 +31,9 @@ const officers: Member[] = [
   { filled: true, name: 'Sangajan Maheswararaj', role: 'Events Officer', email: 'Sangajan.Maheswararaj@utdallas.edu', linkedin: 'https://www.linkedin.com/in/sangajan-m-13239a323/', photo: '/assets/team/sangajan-maheswararaj.png' },
   { filled: true, name: 'Naavya Vig', role: 'Events Officer', email: 'Naavya.Vig@utdallas.edu', linkedin: 'https://www.linkedin.com/in/naavya-vig/', photo: '/assets/team/naavya-vig.png' },
   { filled: false, role: 'Events Officer', abbr: 'EO' },
-  { filled: false, role: 'Public Relations Officer', abbr: 'PRO' },
-  { filled: true, name: 'Aarav Kumar', role: 'Partnerships Officer', email: 'Aarav.Kumar@utdallas.edu', linkedin: 'https://www.linkedin.com/in/aarav-kumar-034594344/', photo: '/assets/team/aarav-kumar.png' },
   { filled: true, name: 'Shrey Joshi', role: 'Growth & Venture Officer', email: 'Shrey.Joshi@utdallas.edu', linkedin: 'https://www.linkedin.com/in/shreyjoshi2004/', photo: '/assets/team/shrey-joshi.png' },
+  { filled: true, name: 'Ishita Hundia', role: 'Growth & Venture Officer', email: 'IshitaMahesh.Hundia@utdallas.edu', linkedin: 'https://www.linkedin.com/in/ishitahundia/', photo: '/assets/team/ishita-hundia.png' },
+  { filled: true, name: 'Aarav Kumar', role: 'Partnerships Officer', email: 'Aarav.Kumar@utdallas.edu', linkedin: 'https://www.linkedin.com/in/aarav-kumar-034594344/', photo: '/assets/team/aarav-kumar.png' },
   { filled: true, name: 'Elizabeth Clawson', role: 'Community Engagement Officer', email: 'Elizabeth.Clawson@utdallas.edu', linkedin: 'https://www.linkedin.com/in/ellie-clawson-a548b8429', photo: '/assets/team/Elizabeth-Clawson.png' },
   { filled: false, role: 'Social Media Officer', abbr: 'SMO' },
   { filled: false, role: 'Social Media Officer', abbr: 'SMO' },
@@ -43,7 +43,7 @@ const officers: Member[] = [
 
 const advisors: Member[] = [
   { filled: true, name: 'Genevieve Fernandes', role: 'Advisor & Program Manager JSOM UTD', email: 'Genevieve.Fernandes@utdallas.edu', linkedin: 'https://www.linkedin.com/in/genfernandes/', photo: '/assets/team/genevieve-fernandes.png' },
-  { filled: true, name: 'Tejas Shroff', role: 'Advisor & Adjunct Faculty JSOM UTD', email: 'Tejas.Shroff@utdallas.edu', linkedin: 'https://www.linkedin.com/in/tejasshroff/', photo: '/assets/team/tejas-shroff.png' },
+  { filled: false, role: 'Advisor', abbr: 'A' },
   { filled: false, role: 'Advisor', abbr: 'A' },
   { filled: false, role: 'Advisor', abbr: 'A' },
 ];
